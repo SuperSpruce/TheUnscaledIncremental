@@ -96,6 +96,10 @@ function load() {
   if(!localStorage.cc) return;
     game = JSON.parse(atob(localStorage.cc));
   
+  game.n = new OmegaNum(game.n);
+  game.d1 = new OmegaNum(game.d1);
+  game.d2 = new OmegaNum(game.d2);
+  
   document.getElementById('Dn').innerHTML = game.n.toString();
   document.getElementById('Dd1').innerHTML = game.d1.toString();
   document.getElementById('Dd2').innerHTML = game.d2.toString();
