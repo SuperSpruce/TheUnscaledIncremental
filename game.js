@@ -69,12 +69,12 @@ function maxD2A(b) {
 function Max() {
   let a = OmegaNum.floor(new OmegaNum(game.n));
   if(a.lt(1e10)) {
-    maxD1(a);
+    maxD1A(a);
   }
   else {
     a = a.div(2);
-    maxD1(a);
-    maxD2(a);
+    maxD1A(a);
+    maxD2A(a);
   }
 }
 
