@@ -19,8 +19,8 @@ function buyD1() {
     game.n = game.n.minus(10);
     game.d1 = game.d1.add(1);
     
-    document.getElementById('Dn').innerHTML = game.n.toString();
-    document.getElementById('Dd1').innerHTML = game.d1.toString();
+    document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
+    document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
   }
 }
 function maxD1() {
@@ -28,16 +28,16 @@ function maxD1() {
   game.n = game.n.minus(OmegaNum.mul(a,10));
   game.d1 = game.d1.add(a);
   
-  document.getElementById('Dn').innerHTML = game.n.toString();
-  document.getElementById('Dd1').innerHTML = game.d1.toString();
+  document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
+  document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
 }
 function maxD1A(b) {
   let a = OmegaNum.floor(new OmegaNum(b.div(10)));
   game.n = game.n.minus(OmegaNum.mul(a,10));
   game.d1 = game.d1.add(a);
   
-  document.getElementById('Dn').innerHTML = game.n.toString();
-  document.getElementById('Dd1').innerHTML = game.d1.toString();
+  document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
+  document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
 }
 
 function buyD2() {
@@ -45,8 +45,8 @@ function buyD2() {
     game.n = game.n.minus(1e10);
     game.d2 = game.d2.add(1);
     
-    document.getElementById('Dn').innerHTML = game.n.toString();
-    document.getElementById('Dd2').innerHTML = game.d2.toString();
+    document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
+    document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
   }
 }
 function maxD2() {
@@ -54,16 +54,16 @@ function maxD2() {
   game.n = game.n.minus(OmegaNum.mul(a,1e10));
   game.d2 = game.d2.add(a);
   
-  document.getElementById('Dn').innerHTML = game.n.toString();
-  document.getElementById('Dd2').innerHTML = game.d2.toString();
+  document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
+  document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
 }
 function maxD2A(b) {
   let a = OmegaNum.floor(new OmegaNum(b.div(1e10)));
   game.n = game.n.minus(OmegaNum.mul(a,1e10));
   game.d2 = game.d2.add(a);
   
-  document.getElementById('Dn').innerHTML = game.n.toString();
-  document.getElementById('Dd2').innerHTML = game.d2.toString();
+  document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
+  document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
 }
 
 function Max() {
@@ -84,9 +84,9 @@ setInterval(function() {
   makeD0(game.d1.div(25));
   makeD1(game.d2.mul(1e9));
   
-  document.getElementById('Dn').innerHTML = game.n.toString();
-  document.getElementById('Dd1').innerHTML = game.d1.toString();
-  //document.getElementById('Dd2').innerHTML = game.d2.toString();
+  document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
+  document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
+  //document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
 }, 40);
 
 
@@ -110,9 +110,9 @@ function load() {
     hardReset();
   }
   
-  document.getElementById('Dn').innerHTML = game.n.toString();
-  document.getElementById('Dd1').innerHTML = game.d1.toString();
-  document.getElementById('Dd2').innerHTML = game.d2.toString();
+  document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
+  document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
+  document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
 }
 
 function hardReset() {
@@ -120,8 +120,8 @@ function hardReset() {
   game.d1 = new OmegaNum(0);
   game.n = new OmegaNum(10);
   
-  document.getElementById('Dn').innerHTML = game.n.toString();
-  document.getElementById('Dd1').innerHTML = game.d1.toString();
-  document.getElementById('Dd2').innerHTML = game.d2.toString();
+  document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
+  document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
+  document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
 }
 load();
