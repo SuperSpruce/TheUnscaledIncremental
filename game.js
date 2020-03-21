@@ -1,5 +1,5 @@
 game = {
-  n = new OmegaNum(10),
+  n = new OmegaNum(100),
   d1 = new OmegaNum(0),
   d2 = new OmegaNum(0)
 };
