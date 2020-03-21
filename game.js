@@ -1,5 +1,5 @@
 game = {
-  n = new OmegaNum(100),
+  n = new OmegaNum(10),
   d1 = new OmegaNum(0),
   d2 = new OmegaNum(0)
 };
@@ -110,3 +110,4 @@ function hardReset() {
   document.getElementById('Dd1').innerHTML = game.d1.toString();
   document.getElementById('Dd2').innerHTML = game.d2.toString();
 }
+load();
