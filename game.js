@@ -106,6 +106,10 @@ function load() {
   game.d1 = new OmegaNum(game.d1);
   game.d2 = new OmegaNum(game.d2);
   
+  if(game.n.eq(0) && game.d1.eq(0)) {
+    hardReset();
+  }
+  
   document.getElementById('Dn').innerHTML = game.n.toString();
   document.getElementById('Dd1').innerHTML = game.d1.toString();
   document.getElementById('Dd2').innerHTML = game.d2.toString();
