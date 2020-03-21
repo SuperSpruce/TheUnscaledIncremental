@@ -1,7 +1,7 @@
 game = {
-  n = new OmegaNum(10),
-  d1 = new OmegaNum(0),
-  d2 = new OmegaNum(0)
+  n: new OmegaNum(10),
+  d1: new OmegaNum(0),
+  d2: new OmegaNum(0)
 };
 
 
