@@ -24,7 +24,7 @@ function buyD1() {
   }
 }
 function maxD1() {
-  let a = OmegaNum.floor(new OmegaNum(game.n.div(10)));
+  let a = OmegaNum.floor(game.n.div(10));
   game.n = game.n.minus(OmegaNum.mul(a,10));
   game.d1 = game.d1.add(a);
   
@@ -50,7 +50,7 @@ function buyD2() {
   }
 }
 function maxD2() {
-  let a = OmegaNum.floor(new OmegaNum(game.n.div(1e10)));
+  let a = OmegaNum.floor(game.n.div(1e10));
   game.n = game.n.minus(OmegaNum.mul(a,1e10));
   game.d2 = game.d2.add(a);
   
@@ -67,9 +67,15 @@ function maxD2(b) {
 }
 
 function Max() {
-  let half = OmegaNum.floor(new OmegaNum(game.n.div(2)));
-  maxD1(half);
-  maxD2(half);
+  let a = OmegaNum.floor(new OmegaNum(game.n));
+  if(a.lt(1e10)) {
+    maxD1(a);
+  }
+  else {
+    a = a.div(2);
+    maxD1(a);
+    maxD2(a);
+  }
 }
 
 
