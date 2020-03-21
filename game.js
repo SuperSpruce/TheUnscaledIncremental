@@ -31,6 +31,14 @@ function maxD1() {
   document.getElementById('Dn').innerHTML = game.n.toString();
   document.getElementById('Dd1').innerHTML = game.d1.toString();
 }
+function maxD1(b) {
+  var a = OmegaNum.floor(new OmegaNum(b.div(10)));
+  game.n.minus(OmegaNum.mul(a,10));
+  game.d1.add(a);
+  
+  document.getElementById('Dn').innerHTML = game.n.toString();
+  document.getElementById('Dd1').innerHTML = game.d1.toString();
+}
 
 function buyD2() {
   if(game.n.gte(1e10)) {
@@ -48,6 +56,20 @@ function maxD2() {
   
   document.getElementById('Dn').innerHTML = game.n.toString();
   document.getElementById('Dd2').innerHTML = game.d2.toString();
+}
+function maxD2(b) {
+  var a = OmegaNum.floor(new OmegaNum(b.div(1e10)));
+  game.n.minus(OmegaNum.mul(a,1e10));
+  game.d2.add(a);
+  
+  document.getElementById('Dn').innerHTML = game.n.toString();
+  document.getElementById('Dd2').innerHTML = game.d2.toString();
+}
+
+function Max() {
+  var half = OmegaNum.floor(new OmegaNum(game.n.div(2)));
+  maxD1(half);
+  maxD2(half);
 }
 
 
