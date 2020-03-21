@@ -31,7 +31,7 @@ function maxD1() {
   document.getElementById('Dn').innerHTML = game.n.toString();
   document.getElementById('Dd1').innerHTML = game.d1.toString();
 }
-function maxD1(b) {
+function maxD1A(b) {
   let a = OmegaNum.floor(new OmegaNum(b.div(10)));
   game.n = game.n.minus(OmegaNum.mul(a,10));
   game.d1 = game.d1.add(a);
@@ -57,7 +57,7 @@ function maxD2() {
   document.getElementById('Dn').innerHTML = game.n.toString();
   document.getElementById('Dd2').innerHTML = game.d2.toString();
 }
-function maxD2(b) {
+function maxD2A(b) {
   let a = OmegaNum.floor(new OmegaNum(b.div(1e10)));
   game.n = game.n.minus(OmegaNum.mul(a,1e10));
   game.d2 = game.d2.add(a);
