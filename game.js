@@ -82,7 +82,7 @@ function Max() {
 
 setInterval(function() {
   makeD0(game.d1.div(25));
-  makeD1(game.d2.mul(1e9));
+  makeD1(game.d2.mul(1e8));
   
   document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
   document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
