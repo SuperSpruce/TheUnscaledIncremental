@@ -99,7 +99,10 @@ setInterval(function() {
 }, 6969);
 
 function load() {
-  if(!localStorage.cc) return;
+  if(!localStorage.cc) {
+    hardReset();
+    return;
+  }
     game = JSON.parse(atob(localStorage.cc));
   
   game.n = new OmegaNum(game.n);
