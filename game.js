@@ -114,7 +114,7 @@ function load() {
     return;
   }
     game = JSON.parse(atob(localStorage.cc));
-  tab("dimTab);
+  tab("dimTab");
   
   game.n = new OmegaNum(game.n);
   game.d1 = new OmegaNum(game.d1);
