@@ -91,6 +91,16 @@ setInterval(function() {
 
 
 
+function tab(tab) {
+	// hide all your tabs, then show the one the user selected.
+	document.getElementById("dimTab").style.display = "none";
+	document.getElementById("prestigeTab1.1").style.display = "none";
+	document.getElementById("optionsTab").style.display = "none";
+	document.getElementById("changelogTab").style.display = "none";
+	document.getElementById(tab).style.display = "inline-block";
+}
+
+
 function save() {
   localStorage.cc = btoa(JSON.stringify(game));
 }
@@ -104,6 +114,7 @@ function load() {
     return;
   }
     game = JSON.parse(atob(localStorage.cc));
+  tab("dimTab);
   
   game.n = new OmegaNum(game.n);
   game.d1 = new OmegaNum(game.d1);
