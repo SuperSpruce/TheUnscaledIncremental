@@ -101,33 +101,10 @@ function tab(tab) {
 }
 
 
-function save() {
-  localStorage.cc = btoa(JSON.stringify(game));
-}
 setInterval(function() {
   save();
 }, 6969);
 
-function load() {
-  if(!localStorage.cc) {
-    hardReset();
-    return;
-  }
-    game = JSON.parse(atob(localStorage.cc));
-  tab("dimTab");
-  
-  game.n = new OmegaNum(game.n);
-  game.d1 = new OmegaNum(game.d1);
-  game.d2 = new OmegaNum(game.d2);
-  
-  if(game.n.eq(0) && game.d1.eq(0)) {
-    hardReset();
-  }
-  
-  document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
-  document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
-  document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
-}
 
 function hardReset() {
   game.d2 = new OmegaNum(0);
