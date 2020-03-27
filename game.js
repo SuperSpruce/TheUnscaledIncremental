@@ -213,12 +213,12 @@ function maxA2A(b) {
 function MaxA() {
   let a = OmegaNum.floor(new OmegaNum(game.a));
   if(a.lt(1e10)) {
-    maxD1A(a);
+    maxA1A(a);
   }
   else {
     a = a.div(2);
-    maxD1A(a);
-    maxD2A(a);
+    maxA1A(a);
+    maxA2A(a);
   }
 }
 
