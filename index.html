@@ -15,8 +15,9 @@
 		
 		
 		<div id="navigateButtons">
-			<button onclick="tab('dimTab')">Dimensions</button>
-			<button onclick="tab('prestigeTab1.1')">Discovery</button>
+			<button onclick="tab('dimTab')">Null Matter</button>
+			<button id = "disB" onclick="tab('prestigeTab1.1')">Discovery</button>
+      <button id = "dimB2" onclick = "tab('dimTab2')">Antimatter</button>
 			<button onclick="tab('optionsTab')">Options</button>
 			<button onclick="tab('changelogTab')">Changelog</button>
 		</div>
@@ -28,7 +29,7 @@
 		
 		<div id = "dimTab">
 			
-    <button onclick = "Max()">Max everything</button>
+    <button onclick = "Max()">Max all dimensions</button>
     <br><br>
     You have <span id = "Dd1">0</span> first dimensions. 
     <button onclick = "buyD1()">Buy 1</button>
@@ -43,7 +44,7 @@
     <button onclick = "maxD3()">Buy Max</button> Cost: E10#2 null matter
       
       <br><br><br><br>
-      Automate the clicking of the Max Everything button (25/s)<br>
+      Automate the clicking of the Max all dimensions button (25/s)<br>
       <button onclick = "buyAu0()">Purchased:<span id = "Dau0">false</span></button> Cost: 1.80e308 null matter<br>
 			
 		</div>
@@ -60,11 +61,33 @@
       Purchased <span id = "Dru0">0</span> times.
 			
 		</div>
+    <div id = "dimTab2">
+      
+      You have <span id = "Da">0</span> antimatter.
+      <br>
+      They are giving a <span id = "Dae">1</span>x multiplier to your discovery point gain.
+      <br><br>
+      <button onclick = "buyRu1()">Buy 1 antimatter</button> Cost: <span id = "DruC1">1000</span> Discovery Points
+    <br><br><br>
+      <button onclick = "MaxA()">Max all antimatter dimensions</button>
+      <br><br>
+    You have <span id = "Da1">0</span> first antimatter dimensions. 
+    <button onclick = "buyA1()">Buy 1</button>
+    <button onclick = "maxA1()">Buy Max</button> Cost: 10 antimatter
+      <br>
+    You have <span id = "Da2">0</span> second antimatter dimensions. 
+    <button onclick = "buyA2()">Buy 1</button>
+    <button onclick = "maxA2()">Buy Max</button> Cost: 1e10 antimatter
+      <br><br><br>
+      There is a <span id = "Dam">0</span>x multiplier to all antimatter dimensions.<br>
+      Formula: 100^superLog(null matter - 3)
+      
+    </div>
                 <div id = "optionsTab">
 			
 	<button onclick = "save()">Manual save</button> <br><br>
 	<button onclick = "hardReset()">HARD RESET</button> WARNING: THIS BUTTON HARD RESETS YOUR SAVE.
-			
+			<br><br><br>
 			For the coders out there: If you want to mod this game, you are allowed to do so as long as you don't name it the exact same thing (The Unscaled Incremental NG+ and the like are fine) and credit me for the original.
 			
 		</div>
@@ -79,6 +102,7 @@
     <br>	3-22-2020, v0.6 beta: Fixed the bug where saving didn't work, and saving is better now.
     <br>  3-22-2020, v1.0: Added discovery! Discover what it does! You can now reach e10000 null matter!
     <br>  3-25-2020, v1.1: Added an automation upgrade, a repeatable discovery upgrade, and fixed some bugs.
+    <br>  3-26-2020, v1.2: Added antimatter dimensions!
 			
 			
 		</div>
