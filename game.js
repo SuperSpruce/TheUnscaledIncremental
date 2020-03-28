@@ -1,23 +1,23 @@
 game = {
-  n: new OmegaNum(10),
-  nT: new OmegaNum(10),
-  d1: new OmegaNum(0),
-  d2: new OmegaNum(0),
-  d3: new OmegaNum(0),
-  a: new OmegaNum(0),
-  a1: new OmegaNum(0),
-  a2: new OmegaNum(0),
-  ae: new OmegaNum(0),
-  am: new OmegaNum(0),
-  dp: new OmegaNum(0),
-  de: new OmegaNum(0),
-  u: [false],
-  ru: [new OmegaNum(0), new OmegaNum(0), 0],
-  ruC: [new OmegaNum(5000), new OmegaNum(1000), 0],
-  au: [false, false],
-  ta: [0, false],
-  ru0P: new OmegaNum(4),
-  ru2C: [new OmegaNum(1e10), new OmegaNum(1e20), new OmegaNum(1e30), new OmegaNum(1e40), new OmegaNum(1e55), new OmegaNum(1e80), new OmegaNum(1e150), new OmegaNum(0)]
+  n: new OmegaNum(10),  //null matter
+  nT: new OmegaNum(10),  //total null matter made
+  d1: new OmegaNum(0),  //1st dimensions
+  d2: new OmegaNum(0),  //2nd dimensions
+  d3: new OmegaNum(0),  //3rd dimensions
+  a: new OmegaNum(0),  //antimatter
+  a1: new OmegaNum(0),  //1st antimatter dimensions
+  a2: new OmegaNum(0),  //2nd antimatter dimensions
+  ae: new OmegaNum(0),  //antimatter effect
+  am: new OmegaNum(0),  //multiplier of antimatter dimensions
+  dp: new OmegaNum(0),  //discovery points
+  de: new OmegaNum(0),  //effect of discovery points
+  u: [false, false],  //upgrades
+  ru: [new OmegaNum(0), new OmegaNum(0), 0],  //repeatable upgrades
+  ruC: [new OmegaNum(5000), new OmegaNum(1000), 0],  //cost of repeatable upgrades
+  au: [false, false],  //automation upgrades
+  ta: [0, false],  //toggle automation
+  ru0P: new OmegaNum(4),  //effect of the first repeatable upgrade
+  ru2C: [new OmegaNum(1e10), new OmegaNum(1e20), new OmegaNum(1e30), new OmegaNum(1e40), new OmegaNum(1e55), new OmegaNum(1e80), new OmegaNum(1e150), new OmegaNum("10^^100")]  //cost of the third repeatable upgrade
 };
 
 
@@ -247,7 +247,8 @@ function MaxA() {
 
 function p1() { 
   if(game.n.gte(1000)) {
-    game.au[0] = false;
+    if(!game.u[1])
+      game.au[0] = false;
     let a = game.dp.add(OmegaNum.mul(game.ae, game.n.logBase(10).floor().minus(2)).round());
     if(game.u[0])
       game.dp = OmegaNum.mul(a,OmegaNum.log10(game.dp));
@@ -335,6 +336,15 @@ function buyU0() {
   }
 }
 
+function buyU1() {
+  if(!game.u[1] && game.dp.gte(1e200)) {
+    game.dp = game.dp.minus(1e200);
+    game.u[1] = true;
+    document.getElementById('Ddp').innerHTML = game.dp.round().toHyperE();
+    document.getElementById('Du1').innerHTML = game.u[1];
+  }
+}
+
 
 
 
@@ -412,6 +422,7 @@ function updateEverything() {
   document.getElementById('Ddp').innerHTML = game.dp.round().toHyperE();
   document.getElementById('Dde').innerHTML = game.de.round().toHyperE();
   document.getElementById('Du0').innerHTML = game.u[0];
+  document.getElementById('Du1').innerHTML = game.u[1];
   document.getElementById('Dau0').innerHTML = game.au[0];
   document.getElementById('Dau1').innerHTML = game.au[1];
   document.getElementById('Dta1').innerHTML = game.ta[1];
@@ -448,6 +459,8 @@ function hardReset() {
   game.ru[2] = 0;
   game.ruC[0] = new OmegaNum(5000);
   game.ruC[1] = new OmegaNum(1000);
+  game.u[0] = false;
+  game.u[1] = false;
   game.am = new OmegaNum(0);
   game.ae = new OmegaNum(0);
   game.a2 = new OmegaNum(0);
