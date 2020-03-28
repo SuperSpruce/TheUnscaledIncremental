@@ -56,9 +56,15 @@
       You have <span id = "Ddp">0</span> Discovery Points, giving a <span id = "Dde">0</span>x multiplier to each dimension's production.
       
       <br><br><br>
-      Cube the boost from Discovery Points.<br>
+      Raise the boost from Discovery Points to the power of <span id = "Dru0P">4</span>.<br>
       <button onclick = "buyRu0()">Buy 1</button> <button onclick = "buyRu0M()">Buy Max</button> Cost: <span id = "Dru0C">5000</span> Discovery Points<br>
       Purchased <span id = "Dru0">0</span> times.
+      <br><br>
+      Retroactively add the boost factor of the above upgrade by 2. <br>
+      <button onclick = "buyRu2()">Buy</button> Cost: <span id = "Dru2C">1e10</span> Discovery Points
+      <br><br><br>
+      Multiply your discovery point gain by log(discovery points).<br>
+      <button onclick = "buyU0()">Purchased: <span id = "Du0">false</span></button> Cost: 1e100 Discovery Points
 			
 		</div>
     <div id = "dimTab2">
@@ -79,8 +85,12 @@
     <button onclick = "buyA2()">Buy 1</button>
     <button onclick = "maxA2()">Buy Max</button> Cost: 1e10 antimatter
       <br><br><br>
+      Automate the clicking of the Max all antimatter dimensions button (25/s) (Togglable) <br>
+      <button onclick = "buyAu1()">Purchased: <span id = "Dau1">false</span></button> <button onclick = "toggleAu1()">Is toggled on: <span id = "Dta1">false</span></button> <br>
+      Cost: 1.80e308 antimatter
+      <br><br><br>
       There is a <span id = "Dam">0</span>x multiplier to all antimatter dimensions.<br>
-      Formula: 100^superLog(null matter - 3)
+      Formula: 10000^superLog(null matter - 3)
       
     </div>
                 <div id = "optionsTab">
@@ -103,6 +113,8 @@
     <br>  3-22-2020, v1.0: Added discovery! Discover what it does! You can now reach e10000 null matter!
     <br>  3-25-2020, v1.1: Added an automation upgrade, a repeatable discovery upgrade, and fixed some bugs.
     <br>  3-26-2020, v1.2: Added antimatter dimensions!
+    <br>  3-26-2020, v1.2.1: Fixed a bug where the max all antimatter dimensions button didn't work.
+		<br>  3-27-2020, v1.3: Added two new upgrades, the automater for the antimatter dimensions, and did some balancing and bugfixing.	
 			
 			
 		</div>
