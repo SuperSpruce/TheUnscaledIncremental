@@ -11,15 +11,17 @@ game = {
   ae: new OmegaNum(0),  //antimatter effect
   am: new OmegaNum(0),  //multiplier of antimatter dimensions
   m: new OmegaNum(0),  //matter (regular matter)
+  m1: new OmegaNum(0),  //1st matter dimensions
+  m2: new OmegaNum(0),  //2nd matter dimensions
   me: new OmegaNum(1),  //matter effect
-  //mm: new OmegaNum(0),  //multiplier of matter dimensions
+  mm: new OmegaNum(0),  //multiplier of matter dimensions
   dp: new OmegaNum(0),  //discovery points
   de: new OmegaNum(0),  //effect of discovery points
-  u: [false, false],  //upgrades
+  u: [false, false, false],  //upgrades
   ru: [new OmegaNum(0), new OmegaNum(0), 0, new OmegaNum(9)],  //repeatable upgrades
   ruC: [new OmegaNum(5000), new OmegaNum(1000), 0, new OmegaNum("eee25")],  //cost of repeatable upgrades
-  au: [false, false],  //automation upgrades
-  ta: [0, false],  //toggle automation
+  au: [false, false, false],  //automation upgrades
+  ta: [0, false, false],  //toggle automation
   ru0P: new OmegaNum(4),  //effect of the first repeatable upgrade
   ru2C: [new OmegaNum(1e10), new OmegaNum(1e20), new OmegaNum(1e30), new OmegaNum(1e40), new OmegaNum(1e55), new OmegaNum(1e80), new OmegaNum(1e150), new OmegaNum(OmegaNum.pow(2,1024)), new OmegaNum("e1000"), new OmegaNum("e6969")]  //cost of the third repeatable upgrade
 };
@@ -42,13 +44,22 @@ function makeA0(a) {
 function makeA1(a) {
   game.a1 = game.a1.add(a);
 }
+function makeM0(a) {
+  game.m = game.m.add(a);
+}
+function makeM1(a) {
+  game.m1 = game.m1.add(a);
+}
 
 
 function buyD1() {
   if(game.n.gte(10)) {
     game.n = game.n.minus(10);
     game.d1 = game.d1.add(1);
-    game.dm[1] = game.dm[1].mul(game.me);
+    if(game.u[2])
+      game.dm[1] = game.dm[1].mul(OmegaNum.tetrate(game.n, game.me));
+    else
+      game.dm[1] = game.dm[1].mul(game.me);
     
     document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
     document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
@@ -59,7 +70,10 @@ function maxD1() {
   let a = OmegaNum.floor(game.n.div(10));
   game.n = game.n.minus(OmegaNum.mul(a,10));
   game.d1 = game.d1.add(a);
-  game.dm[1] = game.dm[1].mul(OmegaNum.pow(game.me, a));
+  if(game.u[2])
+    game.dm[1] = game.dm[1].mul(OmegaNum.pow(OmegaNum.tetrate(a, game.me), a));
+  else
+    game.dm[1] = game.dm[1].mul(OmegaNum.pow(game.me, a));
   
   document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
   document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
@@ -69,7 +83,10 @@ function maxD1A(b) {
   let a = OmegaNum.floor(new OmegaNum(b.div(10)));
   game.n = game.n.minus(OmegaNum.mul(a,10));
   game.d1 = game.d1.add(a);
-  game.dm[1] = game.dm[1].mul(OmegaNum.pow(game.me, a));
+  if(game.u[2])
+    game.dm[1] = game.dm[1].mul(OmegaNum.pow(OmegaNum.tetrate(a, game.me), a));
+  else
+    game.dm[1] = game.dm[1].mul(OmegaNum.pow(game.me, a));
   
   document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
   document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
@@ -80,7 +97,10 @@ function buyD2() {
   if(game.n.gte(1e10)) {
     game.n = game.n.minus(1e10);
     game.d2 = game.d2.add(1);
-    game.dm[2] = game.dm[2].mul(game.me);
+    if(game.u[2])
+      game.dm[2] = game.dm[2].mul(OmegaNum.tetrate(game.n, game.me));
+    else
+      game.dm[2] = game.dm[2].mul(game.me);
     
     document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
     document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
@@ -91,7 +111,10 @@ function maxD2() {
   let a = OmegaNum.floor(game.n.div(1e10));
   game.n = game.n.minus(OmegaNum.mul(a,1e10));
   game.d2 = game.d2.add(a);
-  game.dm[2] = game.dm[2].mul(OmegaNum.pow(game.me, a));
+  if(game.u[2])
+    game.dm[2] = game.dm[2].mul(OmegaNum.pow(OmegaNum.tetrate(a, game.me), a));
+  else
+    game.dm[2] = game.dm[2].mul(OmegaNum.pow(game.me, a));
   
   document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
   document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
@@ -101,7 +124,10 @@ function maxD2A(b) {
   let a = OmegaNum.floor(new OmegaNum(b.div(1e10)));
   game.n = game.n.minus(OmegaNum.mul(a,1e10));
   game.d2 = game.d2.add(a);
-  game.dm[2] = game.dm[2].mul(OmegaNum.pow(game.me, a));
+  if(game.u[2])
+    game.dm[2] = game.dm[2].mul(OmegaNum.pow(OmegaNum.tetrate(a, game.me), a));
+  else
+    game.dm[2] = game.dm[2].mul(OmegaNum.pow(game.me, a));
   
   document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
   document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
@@ -112,7 +138,10 @@ function buyD3() {
   if(game.n.gte("ee10")) {
     game.n = game.n.minus("ee10");
     game.d3 = game.d3.add(1);
-    game.dm[3] = game.dm[3].mul(game.me);
+    if(game.u[2])
+      game.dm[3] = game.dm[3].mul(OmegaNum.tetrate(game.n, game.me));
+    else
+      game.dm[3] = game.dm[3].mul(game.me);
     
     document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
     document.getElementById('Dd3').innerHTML = game.d3.round().toHyperE();
@@ -123,7 +152,10 @@ function maxD3() {
   let a = OmegaNum.floor(game.n.div("ee10"));
   game.n = game.n.minus(OmegaNum.mul(a,"ee10"));
   game.d3 = game.d3.add(a);
-  game.dm[3] = game.dm[3].mul(OmegaNum.pow(game.me, a));
+  if(game.u[2])
+    game.dm[3] = game.dm[3].mul(OmegaNum.pow(OmegaNum.tetrate(a, game.me), a));
+  else
+    game.dm[3] = game.dm[3].mul(OmegaNum.pow(game.me, a));
   
   document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
   document.getElementById('Dd3').innerHTML = game.d3.round().toHyperE();
@@ -133,7 +165,10 @@ function maxD3A(b) {
   let a = OmegaNum.floor(new OmegaNum(b.div("ee10")));
   game.n = game.n.minus(OmegaNum.mul(a,"ee10"));
   game.d3 = game.d3.add(a);
-  game.dm[3] = game.dm[3].mul(OmegaNum.pow(game.me, a));
+  if(game.u[2])
+    game.dm[3] = game.dm[3].mul(OmegaNum.pow(OmegaNum.tetrate(a, game.me), a));
+  else
+    game.dm[3] = game.dm[3].mul(OmegaNum.pow(game.me, a));
   
   document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
   document.getElementById('Dd3').innerHTML = game.d3.round().toHyperE();
@@ -274,15 +309,99 @@ function buyRu3() {
   if(game.dp.gte(game.ruC[3])) {
     game.dp = game.dp.minus(game.ruC[3]);
     game.de = game.dp.pow(OmegaNum.pow(game.ru0P,game.ru[0]));
-    game.ruC[3] = OmegaNum.pow(10,game.ruC[3]);
+    
+    let a = new OmegaNum(game.ruC[3]);
+    a = OmegaNum.mul(2,OmegaNum.slog(a,10));
+    game.ruC[3] = OmegaNum.tetrate(10, a);
+    
     game.m = game.m.add(1).round();
-    game.me = OmegaNum.add(1, OmegaNum.pow(OmegaNum.div(game.m, 10), 5));
+    game.me = OmegaNum.add(1, OmegaNum.pow(OmegaNum.log10(OmegaNum.add(game.m,1)), 3));
     
     document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
     document.getElementById('Dme').innerHTML = game.me.toHyperE();
     document.getElementById('Ddp').innerHTML = game.dp.round().toHyperE();
     document.getElementById('Dde').innerHTML = OmegaNum.add(1,game.de).round().toHyperE();
     document.getElementById('DruC3').innerHTML = game.ruC[3].toHyperE();
+  }
+}
+function buyM1() {
+  if(game.m.gte(10)) {
+    game.m = game.m.minus(10);
+    game.m1 = game.m1.add(1);
+    
+    document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
+    document.getElementById('Dm1').innerHTML = game.m1.round().toHyperE();
+  }
+}
+function maxM1() {
+  let a = OmegaNum.floor(game.m.div(10));
+  game.m = game.m.minus(OmegaNum.mul(a,10));
+  game.m1 = game.m1.add(a);
+  
+  document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
+  document.getElementById('Dm1').innerHTML = game.m1.round().toHyperE();
+}
+function maxM1A(b) {
+  let a = OmegaNum.floor(new OmegaNum(b.div(10)));
+  game.m = game.m.minus(OmegaNum.mul(a,10));
+  game.m1 = game.m1.add(a);
+  
+  document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
+  document.getElementById('Dm1').innerHTML = game.m1.round().toHyperE();
+}
+
+function buyM2() {
+  if(game.m.gte(1e10)) {
+    game.m = game.m.minus(1e10);
+    game.m2 = game.m2.add(1);
+    
+    document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
+    document.getElementById('Dm2').innerHTML = game.m2.round().toHyperE();
+  }
+}
+function maxM2() {
+  let a = OmegaNum.floor(game.m.div(1e10));
+  game.m = game.m.minus(OmegaNum.mul(a,1e10));
+  game.m2 = game.m2.add(a);
+  
+  document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
+  document.getElementById('Dm2').innerHTML = game.m2.round().toHyperE();
+}
+function maxM2A(b) {
+  let a = OmegaNum.floor(new OmegaNum(b.div(1e10)));
+  game.m = game.m.minus(OmegaNum.mul(a,1e10));
+  game.m2 = game.m2.add(a);
+  
+  document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
+  document.getElementById('Dm2').innerHTML = game.m2.round().toHyperE();
+}
+
+function MaxM() {
+  let a = OmegaNum.floor(new OmegaNum(game.m));
+  if(game.m.lt(1e10)) {
+    maxM1A(a);
+  }
+  else {
+    a = a.div(2);
+    maxM1A(a);
+    maxM2A(a);
+  }
+}
+
+
+function buyAu2() {
+  if(!game.au[2] && game.m.gte(OmegaNum.pow(2,1024))) {
+    game.m = game.m.minus(OmegaNum.pow(2,1024));
+    game.au[2] = true;
+    document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
+    document.getElementById('Dau2').innerHTML = game.au[2];
+  }
+}
+
+function toggleAu2() {
+  if(game.au[2]) {
+    game.ta[2] = !game.ta[2];
+    document.getElementById('Dta2').innerHTML = game.ta[2];
   }
 }
 
@@ -406,6 +525,15 @@ function buyU1() {
   }
 }
 
+function buyU2() {
+  if(!game.u[2] && game.dp.gte("10^^100")) {
+    game.u[2] = true;
+    document.getElementById('Du2').innerHTML = game.u[2];
+    document.getElementById('Dme0').innerHTML = "(null matter)^^";
+  }
+}
+
+
 
 
 
@@ -427,16 +555,17 @@ setInterval(function() {
   makeA0(game.a1.mul(game.am).div(25));
   makeA1(game.a2.mul(game.am).mul(1e8));
   
-  //game.mm = 
+  game.mm = OmegaNum.minus(OmegaNum.pow(10,OmegaNum.pow(10,OmegaNum.minus(OmegaNum.slog(game.a,10),4))),1);
+  makeM0(game.m1.mul(game.mm).div(25));
+  makeM1(game.m2.mul(game.mm).mul(1e8));
   
   game.ae = OmegaNum.add(1, OmegaNum.pow(OmegaNum.log10(OmegaNum.add(game.a,1)), 3));
-  game.me = OmegaNum.add(1, OmegaNum.pow(OmegaNum.div(game.m, 10), 5));
+  game.me = OmegaNum.add(1, OmegaNum.pow(OmegaNum.log10(OmegaNum.add(game.m,1)), 3));
   
   
   document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
   document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
   document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
-  //document.getElementById('Dd3').innerHTML = game.d3.round().toHyperE();
   if(game.n.logBase(10).floor().minus(2).gt(0) && game.u[0]) 
     document.getElementById('DdpP').innerHTML = OmegaNum.mul(OmegaNum.mul(game.ae,OmegaNum.log10(OmegaNum.add(10, game.dp))), game.n.logBase(10).floor().minus(2)).round().toHyperE();
   else if(game.n.logBase(10).floor().minus(2).gt(0))
@@ -447,6 +576,10 @@ setInterval(function() {
   document.getElementById('Da1').innerHTML = game.a1.round().toHyperE();
   document.getElementById('Dam').innerHTML = game.am.toHyperE();
   document.getElementById('Dae').innerHTML = game.ae.toHyperE();
+  document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
+  document.getElementById('Dm1').innerHTML = game.m1.round().toHyperE();
+  document.getElementById('Dmm').innerHTML = game.mm.toHyperE();
+  document.getElementById('Dme').innerHTML = game.me.toHyperE();
 }, 40);
 
 setInterval(function() {
@@ -461,6 +594,12 @@ setInterval(function() {
   if(game.nT.gte("eee100")) {
     document.getElementById('dimB3').style.display = 'inline-block';
   }
+  
+  if(game.nT.gt("10^^6")) {
+    document.getElementById('prestigeTab1.2').style.display = 'inline-block';
+  }
+  else
+    document.getElementById('prestigeTab1.2').style.display = 'none';
 }, 1000);
 
 
@@ -496,6 +635,7 @@ function updateEverything() {
   document.getElementById('Dde').innerHTML = OmegaNum.add(1,game.de).round().toHyperE();
   document.getElementById('Du0').innerHTML = game.u[0];
   document.getElementById('Du1').innerHTML = game.u[1];
+  document.getElementById('Du2').innerHTML = game.u[2];
   document.getElementById('Dau0').innerHTML = game.au[0];
   document.getElementById('Dau1').innerHTML = game.au[1];
   document.getElementById('Dta1').innerHTML = game.ta[1];
@@ -512,12 +652,24 @@ function updateEverything() {
   document.getElementById('Dae').innerHTML = game.ae.toHyperE();
   document.getElementById('Dam').innerHTML = game.am.toHyperE();
   document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
+  document.getElementById('Dm1').innerHTML = game.m1.round().toHyperE();
+  document.getElementById('Dm2').innerHTML = game.m2.round().toHyperE();
+  document.getElementById('Dmm').innerHTML = game.mm.toHyperE();
+  document.getElementById('Dme').innerHTML = game.me.toHyperE();
   document.getElementById('DruC3').innerHTML = game.ruC[3].toHyperE();
   document.getElementById('Ddm1').innerHTML = OmegaNum.mul(game.dm[1], OmegaNum.add(1,game.de)).toHyperE();
   document.getElementById('Ddm2').innerHTML = OmegaNum.mul(game.dm[2], OmegaNum.add(1,game.de)).toHyperE();
   document.getElementById('Ddm3').innerHTML = OmegaNum.mul(game.dm[3], OmegaNum.add(1,game.de)).toHyperE();
   document.getElementById('Dme').innerHTML = game.me.toHyperE();
   
+  if(game.ru[2] > 8.5) 
+      document.getElementById('Dru2M').innerHTML = "Buys Max";
+  else
+    document.getElementById('Dru2M').innerHTML = "";
+  if(game.u[2])
+    document.getElementById('Dme0').innerHTML = "(null matter)^^";
+  else
+    document.getElementById('Dme0').innerHTML = "";
   if(game.nT.gte(1000)) {
     document.getElementById('disB').style.display = 'inline-block';
   }
@@ -533,13 +685,22 @@ function updateEverything() {
   }
   else
     document.getElementById('dimB2').style.display = 'none';
+  
+  if(game.nT.gt("10^^6")) {
+    document.getElementById('prestigeTab1.2').style.display = 'inline-block';
+  }
+  else
+    document.getElementById('prestigeTab1.2').style.display = 'none';
+  document.getElementById('prestigeTab1.3').style.display = 'none';
 }
 
 
 function hardReset() {
   game.au[0] = false;
   game.au[1] = false;
+  game.au[2] = false;
   game.ta[1] = false;
+  game.ta[2] = false;
   game.ru0P = new OmegaNum(4);
   game.ru[0] = new OmegaNum(0);
   game.ru[1] = new OmegaNum(0);
@@ -551,6 +712,10 @@ function hardReset() {
   game.ruC[3] = new OmegaNum("eee25");
   game.u[0] = false;
   game.u[1] = false;
+  game.u[2] = false;
+  game.mm = new OmegaNum(0);
+  game.m2 = new OmegaNum(0);
+  game.m1 = new OmegaNum(0);
   game.me = new OmegaNum(1);
   game.m = new OmegaNum(0);
   game.am = new OmegaNum(0);
