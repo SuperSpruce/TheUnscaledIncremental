@@ -75,6 +75,19 @@
       <br><br><br>
       Make the null matter automation upgrade not be reset on discovery.<br>
       <button onclick = "buyU1()">Purchased: <span id = "Du1">false</span></button> Cost: 1e200 Discovery Points
+      <br>
+      
+      
+      <div id = "prestigeTab1.2">
+        <br><br><br><br>
+        Buff the matter effect from x to (null matter)^^x.<br>
+        <button onclick = "buyU2()">Purchased: <span id = "Du2">false</span></button> Cost: E1#100 Discovery Points
+        <div id = "prestigeTab1.3">
+        <br><br><br>
+        Change the antimatter effect from multiplying discovery point gain to tetrating discovery point gain.<br>
+        <button onclick = "buyU3()">Purchased: <span id = "Du3">false</span></button> Cost: 3^^^3 (about E1#7.6256e12) Discovery Points
+        </div>
+      </div>
 			
       
       
@@ -83,7 +96,7 @@
       
       You have <span id = "Da">0</span> antimatter.
       <br>
-      They are giving a <span id = "Dae">1</span>x multiplier to your discovery point gain.
+      They are multiplying your discovery point gain by <span id = "Dae">1</span>x.
       <br><br>
       <button onclick = "buyRu1()">Buy 1 antimatter</button> Cost: <span id = "DruC1">1000</span> Discovery Points
     <br><br><br>
@@ -111,9 +124,26 @@
       
       You have <span id = "Dm">0</span> matter.
       <br>
-      They make it so that whenever you buy a dimension, that dimension gets a <span id = "Dme">1</span>x multiplier.
+      They make it so that whenever you buy a dimension, that dimension gets a <span id = "Dme0"></span><span id = "Dme">1</span>x multiplier.
       <br><br>
-      <button onclick = "buyRu3()">Buy 1 matter</button> Cost: <span id = "DruC3">1.80e308</span> Discovery Points
+      <button onclick = "buyRu3()">Buy 1 matter</button> Cost: <span id = "DruC3">E25#3</span> Discovery Points
+      <br><br><br>
+      <button onclick = "MaxM()">Max all matter dimensions</button>
+      <br><br>
+    You have <span id = "Dm1">0</span> first matter dimensions. 
+    <button onclick = "buyM1()">Buy 1</button>
+    <button onclick = "maxM1()">Buy Max</button> Cost: 10 matter
+      <br>
+    You have <span id = "Dm2">0</span> second matter dimensions. 
+    <button onclick = "buyM2()">Buy 1</button>
+    <button onclick = "maxM2()">Buy Max</button> Cost: 1e10 matter
+      <br><br><br>
+      Automate the clicking of the Max all matter dimensions button (25/s) (Togglable) <br>
+      <button onclick = "buyAu2()">Purchased: <span id = "Dau2">false</span></button> <button onclick = "toggleAu2()">Is toggled on: <span id = "Dta2">false</span></button> <br>
+      Cost: 1.80e308 matter
+      <br><br><br>
+      There is a <span id = "Dmm">0</span>x multiplier to all matter dimensions.<br>
+      Formula: 10^(10^(superLog(antimatter) - 4)) - 1
       
       
       
@@ -146,6 +176,7 @@
     <br>  3-28-2020, v1.5: Added matter! And added an OP upgrade! And fixed a lot of bugs.
     <br>  3-30-2020, v1.5.1: Fixed a display oversite where the listed formula was incorrect.
     <br>  3-30-2020, v1.6: Changed some costs for high tiers of the upgrade that boosts the other, made the matter cost more expensive, and fixed some more bugs.
+    <br>. 4-12-2020, v1.7: Added matter dimensions and an upgrade that buffs the matter effect!
 			
 			
 		</div>
