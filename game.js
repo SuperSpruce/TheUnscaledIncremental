@@ -315,7 +315,7 @@ function buyRu3() {
     game.ruC[3] = OmegaNum.tetrate(10, a);
     
     game.m = game.m.add(1).round();
-    game.me = OmegaNum.add(1, OmegaNum.pow(OmegaNum.log10(OmegaNum.add(game.m,1)), 3));
+    game.me = OmegaNum.add(1, OmegaNum.pow(OmegaNum.log10(OmegaNum.add(game.m,1)), 6));
     
     document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
     document.getElementById('Dme').innerHTML = game.me.toHyperE();
@@ -546,6 +546,9 @@ setInterval(function() {
   if(game.ta[1]) {
     MaxA();
   }
+  if(game.ta[2]) {
+    MaxM();
+  }
   
   makeD0(game.d1.div(25).mul(OmegaNum.mul(game.dm[1], OmegaNum.add(1,game.de))));
   makeD1(game.d2.mul(1e8).mul(OmegaNum.mul(game.dm[2], OmegaNum.add(1,game.de))));
@@ -555,12 +558,12 @@ setInterval(function() {
   makeA0(game.a1.mul(game.am).div(25));
   makeA1(game.a2.mul(game.am).mul(1e8));
   
-  game.mm = OmegaNum.minus(OmegaNum.pow(10,OmegaNum.pow(10,OmegaNum.minus(OmegaNum.slog(game.a,10),4))),1);
+  game.mm = OmegaNum.minus(OmegaNum.pow(1000,OmegaNum.pow(10,OmegaNum.minus(OmegaNum.slog(game.a,10),4))),1);
   makeM0(game.m1.mul(game.mm).div(25));
   makeM1(game.m2.mul(game.mm).mul(1e8));
   
   game.ae = OmegaNum.add(1, OmegaNum.pow(OmegaNum.log10(OmegaNum.add(game.a,1)), 3));
-  game.me = OmegaNum.add(1, OmegaNum.pow(OmegaNum.log10(OmegaNum.add(game.m,1)), 3));
+  game.me = OmegaNum.add(1, OmegaNum.pow(OmegaNum.log10(OmegaNum.add(game.m,1)), 6));
   
   
   document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
@@ -621,6 +624,8 @@ setInterval(function() {
 }, 6969);
 
 function updateEverything() {
+  game.ru2C = [new OmegaNum(1e10), new OmegaNum(1e20), new OmegaNum(1e30), new OmegaNum(1e40), new OmegaNum(1e55), new OmegaNum(1e80), new OmegaNum(1e150), new OmegaNum(OmegaNum.pow(2,1024)), new OmegaNum("e1000"), new OmegaNum("e6969")];
+  
   document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
   document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
   document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
@@ -638,7 +643,9 @@ function updateEverything() {
   document.getElementById('Du2').innerHTML = game.u[2];
   document.getElementById('Dau0').innerHTML = game.au[0];
   document.getElementById('Dau1').innerHTML = game.au[1];
+  document.getElementById('Dau2').innerHTML = game.au[2];
   document.getElementById('Dta1').innerHTML = game.ta[1];
+  document.getElementById('Dta2').innerHTML = game.ta[2];
   document.getElementById('Dru0').innerHTML = game.ru[0].toHyperE();
   document.getElementById('Dru0C').innerHTML = game.ruC[0].toHyperE();
   document.getElementById('Dru0P').innerHTML = game.ru0P.round().toHyperE();
