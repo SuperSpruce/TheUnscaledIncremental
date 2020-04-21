@@ -8,6 +8,7 @@ game = {
   a: new OmegaNum(0),  //antimatter
   a1: new OmegaNum(0),  //1st antimatter dimensions
   a2: new OmegaNum(0),  //2nd antimatter dimensions
+  a3: new OmegaNum(0),  //3rd antimatter dimensions
   ae: new OmegaNum(0),  //antimatter effect
   am: new OmegaNum(0),  //multiplier of antimatter dimensions
   m: new OmegaNum(0),  //matter (regular matter)
@@ -43,6 +44,9 @@ function makeA0(a) {
 }
 function makeA1(a) {
   game.a1 = game.a1.add(a);
+}
+function makeA2(a) {
+  game.a2 = game.a2.add(a);
 }
 function makeM0(a) {
   game.m = game.m.add(a);
@@ -291,15 +295,54 @@ function maxA2A(b) {
   document.getElementById('Da2').innerHTML = game.a2.round().toHyperE();
 }
 
+function buyA3() {
+  if(game.a.gte("ee10")) {
+    game.a = game.a.minus("ee10");
+    game.a3 = game.a3.add(1);
+    
+    document.getElementById('Da').innerHTML = game.a.round().toHyperE();
+    document.getElementById('Da3').innerHTML = game.a3.round().toHyperE();
+  }
+}
+function maxA3() {
+  let a = OmegaNum.floor(game.a.div("ee10"));
+  game.a = game.a.minus(OmegaNum.mul(a,"ee10"));
+  game.a3 = game.a3.add(a);
+  
+  document.getElementById('Da').innerHTML = game.a.round().toHyperE();
+  document.getElementById('Da3').innerHTML = game.a3.round().toHyperE();
+}
+function maxA3A(b) {
+  let a = OmegaNum.floor(new OmegaNum(b.div("ee10")));
+  game.a = game.a.minus(OmegaNum.mul(a,"ee10"));
+  game.a3 = game.a3.add(a);
+  
+  document.getElementById('Da').innerHTML = game.a.round().toHyperE();
+  document.getElementById('Da3').innerHTML = game.a3.round().toHyperE();
+}
+
+
 function MaxA() {
   let a = OmegaNum.floor(new OmegaNum(game.a));
-  if(a.lt(1e10)) {
+  if(a.gt("ee10000")) {
+    maxA1A(a);
+    maxA2A(a);
+    maxA3A(a);
+    game.a = new OmegaNum(a);
+  }
+  else if(a.lt(1e10)) {
     maxA1A(a);
   }
-  else {
+  else if (a.lt("ee10")){
     a = a.div(2);
     maxA1A(a);
     maxA2A(a);
+  }
+  else {
+    a = a.div(3);
+    maxA1A(a);
+    maxA2A(a);
+    maxA3A(a);
   }
 }
 
@@ -557,6 +600,7 @@ setInterval(function() {
   game.am = OmegaNum.pow(10000, OmegaNum.minus(OmegaNum.slog(game.n, 10), 3));
   makeA0(game.a1.mul(game.am).div(25));
   makeA1(game.a2.mul(game.am).mul(1e8));
+  makeA2(game.a3.mul(game.am).mul("ee10"));
   
   game.mm = OmegaNum.minus(OmegaNum.pow(1000,OmegaNum.pow(10,OmegaNum.minus(OmegaNum.slog(game.a,10),4))),1);
   makeM0(game.m1.mul(game.mm).div(25));
@@ -577,6 +621,7 @@ setInterval(function() {
     document.getElementById('DdpP').innerHTML = 0;
   document.getElementById('Da').innerHTML = game.a.round().toHyperE();
   document.getElementById('Da1').innerHTML = game.a1.round().toHyperE();
+  document.getElementById('Da2').innerHTML = game.a2.round().toHyperE();
   document.getElementById('Dam').innerHTML = game.am.toHyperE();
   document.getElementById('Dae').innerHTML = game.ae.toHyperE();
   document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
@@ -656,6 +701,7 @@ function updateEverything() {
   document.getElementById('DruC1').innerHTML = game.ruC[1].toHyperE();
   document.getElementById('Da1').innerHTML = game.a1.round().toHyperE();
   document.getElementById('Da2').innerHTML = game.a2.round().toHyperE();
+  document.getElementById('Da3').innerHTML = game.a3.round().toHyperE();
   document.getElementById('Dae').innerHTML = game.ae.toHyperE();
   document.getElementById('Dam').innerHTML = game.am.toHyperE();
   document.getElementById('Dm').innerHTML = game.m.round().toHyperE();
@@ -727,6 +773,7 @@ function hardReset() {
   game.m = new OmegaNum(0);
   game.am = new OmegaNum(0);
   game.ae = new OmegaNum(0);
+  game.a3 = new OmegaNum(0);
   game.a2 = new OmegaNum(0);
   game.a1 = new OmegaNum(0);
   game.a = new OmegaNum(0);
