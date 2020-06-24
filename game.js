@@ -18,14 +18,28 @@ game = {
   mm: new OmegaNum(0),  //multiplier of matter dimensions
   dp: new OmegaNum(0),  //discovery points
   de: new OmegaNum(0),  //effect of discovery points
-  u: [false, false, false],  //upgrades
+  u: [false, false, false, false],  //upgrades
   ru: [new OmegaNum(0), new OmegaNum(0), 0, new OmegaNum(9)],  //repeatable upgrades
   ruC: [new OmegaNum(5000), new OmegaNum(1000), 0, new OmegaNum("eee25")],  //cost of repeatable upgrades
   au: [false, false, false],  //automation upgrades
   ta: [0, false, false],  //toggle automation
   ru0P: new OmegaNum(4),  //effect of the first repeatable upgrade
-  ru2C: [new OmegaNum(1e10), new OmegaNum(1e20), new OmegaNum(1e30), new OmegaNum(1e40), new OmegaNum(1e55), new OmegaNum(1e80), new OmegaNum(1e150), new OmegaNum(OmegaNum.pow(2,1024)), new OmegaNum("e1000"), new OmegaNum("e6969")]  //cost of the third repeatable upgrade
+  ru2C: [new OmegaNum(1e10), new OmegaNum(1e20), new OmegaNum(1e30), new OmegaNum(1e40), new OmegaNum(1e55), new OmegaNum(1e80), new OmegaNum(1e150), new OmegaNum(OmegaNum.pow(2,1024)), new OmegaNum("e1000"), new OmegaNum("e6969")],  //cost of the third repeatable upgrade
+  theme: 0
 };
+
+
+
+
+function changeTheme() {
+  if(game.theme > 0) {
+    game.theme = 0;
+  }
+  else {
+    game.theme++;
+  }
+}
+
 
 
 
@@ -457,11 +471,15 @@ function p1() {
   if(game.n.gte(1000)) {
     if(!game.u[1])
       game.au[0] = false;
-    let a = OmegaNum.mul(game.ae, game.n.logBase(10).floor().minus(2)).round();
+    let a = game.n.logBase(10).floor().minus(2).round();
     if(game.u[0])
-      game.dp = game.dp.add(OmegaNum.mul(a,OmegaNum.log10(OmegaNum.add(10, game.dp))));
+      a = OmegaNum.mul(a,OmegaNum.log10(OmegaNum.add(10, game.dp)));
+    if(game.u[3]) 
+      a = OmegaNum.tetrate(a, game.ae);
     else
-      game.dp = game.dp.add(a);
+      a = OmegaNum.mul(a, game.ae);
+    
+    game.dp = game.dp.add(a);
     game.de = game.dp.pow(OmegaNum.pow(game.ru0P,game.ru[0]));
     game.d3 = new OmegaNum(0);
     game.d2 = new OmegaNum(0);
@@ -576,6 +594,14 @@ function buyU2() {
   }
 }
 
+function buyU3() {
+  if(!game.u[3] && game.dp.gte("10^^7625597484987")) {
+    game.u[3] = true;
+    document.getElementById('Du3').innerHTML = game.u[3];
+    document.getElementById('Dah').innerHTML = "tetrating";
+  }
+}
+
 
 
 
@@ -606,14 +632,21 @@ setInterval(function() {
   makeM0(game.m1.mul(game.mm).div(25));
   makeM1(game.m2.mul(game.mm).mul(1e8));
   
-  game.ae = OmegaNum.add(1, OmegaNum.pow(OmegaNum.log10(OmegaNum.add(game.a,1)), 3));
+  if(game.u[3]) {
+    game.ae = OmegaNum.log10(game.a);
+  }
+  else
+    game.ae = OmegaNum.add(1, OmegaNum.pow(OmegaNum.log10(OmegaNum.add(game.a,1)), 3));
+  
   game.me = OmegaNum.add(1, OmegaNum.pow(OmegaNum.log10(OmegaNum.add(game.m,1)), 6));
   
   
   document.getElementById('Dn').innerHTML = game.n.round().toHyperE();
   document.getElementById('Dd1').innerHTML = game.d1.round().toHyperE();
   document.getElementById('Dd2').innerHTML = game.d2.round().toHyperE();
-  if(game.n.logBase(10).floor().minus(2).gt(0) && game.u[0]) 
+  if(game.n.logBase(10).floor().minus(2).gt(0) && game.u[3])
+    document.getElementById('DdpP').innerHTML = OmegaNum.mul(OmegaNum.log10(OmegaNum.add(10, game.dp)), OmegaNum.tetrate(game.n.logBase(10).floor().minus(2), game.ae)).round().toHyperE();
+  else if(game.n.logBase(10).floor().minus(2).gt(0) && game.u[0]) 
     document.getElementById('DdpP').innerHTML = OmegaNum.mul(OmegaNum.mul(game.ae,OmegaNum.log10(OmegaNum.add(10, game.dp))), game.n.logBase(10).floor().minus(2)).round().toHyperE();
   else if(game.n.logBase(10).floor().minus(2).gt(0))
     document.getElementById('DdpP').innerHTML = OmegaNum.mul(game.ae, game.n.logBase(10).floor().minus(2)).round().toHyperE();
@@ -648,6 +681,11 @@ setInterval(function() {
   }
   else
     document.getElementById('prestigeTab1.2').style.display = 'none';
+  /*if(game.nT.gt("10^^308")) {
+  document.getElementById('prestigeTab1.3').style.display = 'inline-block';
+  }
+    else
+      document.getElementById('prestigeTab1.3').style.display = 'none';*/
 }, 1000);
 
 
@@ -723,6 +761,11 @@ function updateEverything() {
     document.getElementById('Dme0').innerHTML = "(null matter)^^";
   else
     document.getElementById('Dme0').innerHTML = "";
+  if(game.u[3])
+    document.getElementById('Dah').innerHTML = "tetrating";
+  else
+    document.getElementById('Dah').innerHTML = "multiplying";
+  
   if(game.nT.gte(1000)) {
     document.getElementById('disB').style.display = 'inline-block';
   }
@@ -744,7 +787,13 @@ function updateEverything() {
   }
   else
     document.getElementById('prestigeTab1.2').style.display = 'none';
-  document.getElementById('prestigeTab1.3').style.display = 'none';
+  /*if(game.nT.gt("10^^308")) {
+  document.getElementById('prestigeTab1.3').style.display = 'inline-block';
+  }
+    else
+      document.getElementById('prestigeTab1.3').style.display = 'none';
+  
+  document.getElementById("game").style.display = "block";*/
 }
 
 
@@ -766,6 +815,7 @@ function hardReset() {
   game.u[0] = false;
   game.u[1] = false;
   game.u[2] = false;
+  game.u[3] = false;
   game.mm = new OmegaNum(0);
   game.m2 = new OmegaNum(0);
   game.m1 = new OmegaNum(0);
@@ -791,3 +841,4 @@ function hardReset() {
 load();
 updateEverything();
 tab('dimTab');
+scrollNextMessage();
