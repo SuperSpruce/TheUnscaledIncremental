@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 	<head>
 		<!-- <link rel="stylesheet" type="text/css" href="interface.css" /> -->
@@ -6,26 +7,32 @@
 		<title>The Unscaled Incremental</title>
 		<script type="text/javascript" src="OmegaNum.js" defer></script>
 		<script type="text/javascript" src="save.js" defer></script>
+    <script type="text/javascript" src="newsticker.js" defer></script>
 		<script type="text/javascript" src="game.js" defer></script>
+    <!-- <script type="text/css" src="graphics.css" defer></script> -->
 	</head>
 
 	
 	<body>
-		    No Cost Scaling! <br><br><br>
+		    No Cost Scaling! 
+        <div id="game">
+            <div id="news">.</div>
+        </div>
+    <br><br><br>
 		
 		
 		<div id="navigateButtons">
-			<button onclick="tab('dimTab')">Null Matter</button>
-			<button id = "disB" onclick="tab('prestigeTab1.1')">Discovery</button>
-      <button id = "dimB2" onclick = "tab('dimTab2')">Antimatter</button>
-      <button id = "dimB3" onclick = "tab('dimTab3')">Matter</button>
-			<button onclick="tab('optionsTab')">Options</button>
-			<button onclick="tab('changelogTab')">Changelog</button>
+			<button class = "bt" onclick="tab('dimTab')">Null Matter</button>
+			<button class = "b1" id = "disB" onclick="tab('prestigeTab1.1')">Discovery</button>
+      <button class = "b2" id = "dimB2" onclick = "tab('dimTab2')">Antimatter</button>
+      <button class = "b3" id = "dimB3" onclick = "tab('dimTab3')">Matter</button>
+			<button class = "bt" onclick="tab('optionsTab')">Options</button>
+			<button class = "bt" onclick="tab('changelogTab')">Changelog</button>
 		</div>
 		
 
     <br><br><br>
-    You have <span id = "Dn">10</span> null matter.
+    <co class = "null0"> You have </co> <co class = "null1"> <span id = "Dn">10</span> </co><co class = "null0"> null matter. </co>
     <br><br><br>
 		
     
@@ -33,7 +40,7 @@
     
 		<div id = "dimTab">
 			
-    <button onclick = "Max()">Max all dimensions</button>
+    <button class = "m" onclick = "Max()">Max all dimensions</button>
     <br><br>
     You have <span id = "Dd1">0</span> first dimensions. 
     <button onclick = "buyD1()">Buy 1</button>
@@ -59,7 +66,7 @@
 			Each Discovery Point multiplies each dimension's production by an additive 100% each, before additional boosts.<br>
       <button onclick = "p1()">Reset your progress for Discovery Points!</button><br>
       You can get <span id = "DdpP">0</span> Discovery Points if you make a Discovery now.<br><br>
-      You have <span id = "Ddp">0</span> Discovery Points, giving a <span id = "Dde">0</span>x multiplier to each dimension's production.
+      <co class = "di0"> You have <co class = "di1"><span id = "Ddp">0</span></co> Discovery Points, giving a <span id = "Dde">0</span>x multiplier to each dimension's production. </co>
       
       <br><br><br>
       Raise the boost from Discovery Points to the power of <span id = "Dru0P">4</span>.<br>
@@ -82,11 +89,13 @@
         <br><br><br><br>
         Buff the matter effect from x to (null matter)^^x.<br>
         <button onclick = "buyU2()">Purchased: <span id = "Du2">false</span></button> Cost: E1#100 Discovery Points
+        <!--
         <div id = "prestigeTab1.3">
         <br><br><br>
         Change the antimatter effect from multiplying discovery point gain to tetrating discovery point gain.<br>
         <button onclick = "buyU3()">Purchased: <span id = "Du3">false</span></button> Cost: 3^^^3 (about E1#7.6256e12) Discovery Points
         </div>
+        -->
       </div>
 			
       
@@ -94,13 +103,13 @@
 		</div>
     <div id = "dimTab2">
       
-      You have <span id = "Da">0</span> antimatter.
+      <co class = "di0"> You have <co class = "di2"><span id = "Da">0</span></co> antimatter. </co>
       <br>
-      They are multiplying your discovery point gain by <span id = "Dae">1</span>x.
+      They are <span id = "Dah">multiplying</span> your discovery point gain by <span id = "Dae">1</span>x.
       <br><br>
       <button onclick = "buyRu1()">Buy 1 antimatter</button> Cost: <span id = "DruC1">1000</span> Discovery Points
     <br><br><br>
-      <button onclick = "MaxA()">Max all antimatter dimensions</button>
+      <button class = "m" onclick = "MaxA()">Max all antimatter dimensions</button>
       <br><br>
     You have <span id = "Da1">0</span> first antimatter dimensions. 
     <button onclick = "buyA1()">Buy 1</button>
@@ -126,13 +135,13 @@
     </div>
     <div id = "dimTab3">
       
-      You have <span id = "Dm">0</span> matter.
+      <co class = "di0"> You have <co class = "di3"><span id = "Dm">0</span></co> matter. </co>
       <br>
       They make it so that whenever you buy a dimension, that dimension gets a <span id = "Dme0"></span><span id = "Dme">1</span>x multiplier.
       <br><br>
       <button onclick = "buyRu3()">Buy 1 matter</button> Cost: <span id = "DruC3">E25#3</span> Discovery Points
       <br><br><br>
-      <button onclick = "MaxM()">Max all matter dimensions</button>
+      <button class = "m" onclick = "MaxM()">Max all matter dimensions</button>
       <br><br>
     You have <span id = "Dm1">0</span> first matter dimensions. 
     <button onclick = "buyM1()">Buy 1</button>
@@ -155,10 +164,12 @@
     <div id = "optionsTab">
 			
 	<button onclick = "save()">Manual save</button> <br><br>
+      <button onclick = "changeTheme()">Change Color Theme</button> Doesn't work currently.<br><br><br>
 	<button onclick = "hardReset()">HARD RESET</button> WARNING: THIS BUTTON HARD RESETS YOUR SAVE.
 			<br><br><br>
 			For the coders out there: If you want to mod this game, you are allowed to do so as long as you don't name it the exact same thing (The Unscaled Incremental NG+ and the like are fine) and credit me for the original.
-			
+			<br><br><br>
+      Credit to Hevipelle and Aarex for some of the news tickers. And credit to Hevipelle for the news ticker code.
       
       
 		</div>
@@ -170,21 +181,23 @@
 		<br>	3-21-2020, v0.3 beta: Fixed the bug where the individual buy max buttons didn't work.
 		<br>	3-21-2020, v0.4 beta: No more floating point errors on the screen!
 		<br>	3-21-2020, v0.5 beta: Added this changelog, added tabs, nerfed 2nd dimension by 5x.
-    <br>	3-22-2020, v0.6 beta: Fixed the bug where saving didn't work, and saving is better now.
-    <br>  3-22-2020, v1.0: Added discovery! Discover what it does! You can now reach e10000 null matter!
-    <br>  3-25-2020, v1.1: Added an automation upgrade, a repeatable discovery upgrade, and fixed some bugs.
+    <br>	3-22-2020, v0.6 beta: Fixed the bug where saving didn't work, and saving is better now.  <co class = "cc1-0">
+    <br>  3-22-2020, v1.0: Added discovery! Discover what it does! You can now reach e10000 null matter!  </co><co class = "cc1-1">
+    <br>  3-25-2020, v1.1: Added an automation upgrade, a repeatable discovery upgrade, and fixed some bugs.  </co><co class = "cc1-2">
     <br>  3-26-2020, v1.2: Added antimatter dimensions!
-    <br>  3-26-2020, v1.2.1: Fixed a bug where the max all antimatter dimensions button didn't work.
-    <br>  3-27-2020, v1.3: Added two new upgrades, the automater for the antimatter dimensions, and did some balancing and bugfixing.
-    <br>  3-28-2020, v1.4: Added a new upgrade, and changed the font from meme font (impact) to monospaced font (courier).
-    <br>  3-28-2020, v1.5: Added matter! And added an OP upgrade! And fixed a lot of bugs.
-    <br>  3-30-2020, v1.5.1: Fixed a display oversight where the listed formula was incorrect.
-    <br>  3-30-2020, v1.6: Changed some costs for high tiers of the upgrade that boosts the other, made the matter cost more expensive, and fixed some more bugs.
+    <br>  3-26-2020, v1.2.1: Fixed a bug where the max all antimatter dimensions button didn't work.  </co><co class = "cc1-3">
+    <br>  3-27-2020, v1.3: Added two new upgrades, the automator for the antimatter dimensions, and did some balancing and bugfixing.  </co><co class = "cc1-4">
+    <br>  3-28-2020, v1.4: Added a new upgrade, and changed the font from meme font (impact) to monospaced font (courier).  </co><co class = "cc1-5">
+    <br>  3-28-2020, v1.5: Added matter! And added an OP upgrade! And fixed a lot of bugs.  
+    <br>  3-30-2020, v1.5.1: Fixed a display oversight where the listed formula was incorrect.  </co><co class = "cc1-6">
+    <br>  3-30-2020, v1.6: Changed some costs for high tiers of the upgrade that boosts the other, made the matter cost more expensive, and fixed some more bugs.  </co><co class = "cc1-7">
     <br>  4-12-2020, v1.7: Added matter dimensions and an upgrade that buffs the matter effect!
     <br>  4-19-2020, v1.7.1: Matter automation now works and other bugfixes, matter effect and matter dimension multiplier are buffed.
-    <br>  4-20-2020, v1.7.2: Added 3rd Antimatter Dimension.
+    <br>  4-20-2020, v1.7.2: Added 3rd Antimatter Dimension.  </co><co class = "cc1-8">
+    <br>  6-22-2020, v1.8: Better graphics, and added a buggy news ticker!  </co>
 			
 			
 		</div>
     
-	</body></html>
+	</body>
+</html>
