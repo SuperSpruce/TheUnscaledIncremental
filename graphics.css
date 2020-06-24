@@ -3,9 +3,119 @@
 body {
   font: 20px courier, sans-serif;
   margin: 2em;
+  color: #ffffff;
+  background-color: #222222;
+  
+  /*if(game.theme = 0) {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  else if(game.theme = 1) {
+    background-color: #000000;
+    color: #ffffff;
+  }*/
 }
 
 h1 {
   font-style: italic;
   color: #373fff;
+}
+
+co.cc1-0 {
+  color: #ff0000;
+}
+co.cc1-1 {
+  color: #ff3300;
+}
+co.cc1-2 {
+  color: #ff7700;
+}
+co.cc1-3 {
+  color: #ffbb00;
+}
+co.cc1-4 {
+  color: #ffdd00;
+}
+co.cc1-5 {
+  color: #ffff00;
+}
+co.cc1-6 {
+  color: #ccff00;
+}
+co.cc1-7 {
+  color: #99ff00;
+}
+co.cc1-8 {
+  color: #66ff00;
+}
+co.null0 {
+  font: 24px courier, sans-serif;
+}
+co.null1 {
+  font: 36px courier, sans-serif;
+}
+co.di0 {
+  font: 24px courier, sans-serif;
+}
+co.di1 {
+  color: #00dd00;
+}
+co.di2 {
+  color: #ff2222;
+}
+co.di3 {
+  color: #5599ff;
+}
+
+
+
+
+button.bt {
+  border: none;
+  padding: 12px 20px;
+  margin: 4px 2px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 24px;
+}
+button.b1 {
+  border: none;
+  padding: 12px 20px;
+  margin: 4px 2px;
+  background-color: #ffffff;
+  color: #00aa00;
+  font-size: 24px;
+}
+button.b2 {
+  border: none;
+  padding: 12px 20px;
+  margin: 4px 2px;
+  background-color: #ee1111;
+  color: #ffffff;
+  font-size: 24px;
+}
+button.b3 {
+  border: none;
+  padding: 12px 20px;
+  margin: 4px 2px;
+  background-color: #0505f0;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+button.m {
+  border: none;
+  padding: 6px 12px;
+  margin: 4px 2px;
+  background-color: #883300;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+
+#game {
+  /* just trying something */
+  overflow: hidden !important;
+  max-width: 100vw;
+  white-space: nowrap;
 }
