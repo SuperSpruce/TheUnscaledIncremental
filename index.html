@@ -14,7 +14,7 @@
 
 	
 	<body>
-		    No Cost Scaling! 
+		    No Cost Scaling!  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Time played: <span id = "timePlayed">0:00:00</span>
         <div id="game">
             <div id="news">.</div>
         </div>
@@ -40,23 +40,23 @@
     
 		<div id = "dimTab">
 			
-    <button class = "m" onclick = "Max()">Max all dimensions</button>
+    <button class = "mN" onclick = "Max()">Max all dimensions</button>
     <br><br>
     You have <span id = "Dd1">0</span> first dimensions. 
-    <button onclick = "buyD1()">Buy 1</button>
-    <button onclick = "maxD1()">Buy Max</button> Cost: 10 null matter,  Multiplier: <span id = "Ddm1">1</span>x
+    <button class = "buy" onclick = "buyD1()">Buy 1</button>
+    <button class = "buyM" onclick = "maxD1()">Buy Max</button> Cost: 10 null matter,  Multiplier: <span id = "Ddm1">1</span>x
       <br>
     You have <span id = "Dd2">0</span> second dimensions. 
-    <button onclick = "buyD2()">Buy 1</button>
-    <button onclick = "maxD2()">Buy Max</button> Cost: 1e10 null matter,  Multiplier: <span id = "Ddm2">1</span>x
+    <button class = "buy" onclick = "buyD2()">Buy 1</button>
+    <button class = "buyM" onclick = "maxD2()">Buy Max</button> Cost: 1e10 null matter,  Multiplier: <span id = "Ddm2">1</span>x
       <br>
     You have <span id = "Dd3">0</span> third dimensions. 
-    <button onclick = "buyD3()">Buy 1</button>
-    <button onclick = "maxD3()">Buy Max</button> Cost: E10#2 null matter,  Multiplier: <span id = "Ddm3">1</span>x
+    <button class = "buy" onclick = "buyD3()">Buy 1</button>
+    <button class = "buyM" onclick = "maxD3()">Buy Max</button> Cost: E10#2 null matter,  Multiplier: <span id = "Ddm3">1</span>x
       
       <br><br><br><br>
       Automate the clicking of the Max all dimensions button (25/s)<br>
-      <button onclick = "buyAu0()">Purchased:<span id = "Dau0">false</span></button> Cost: 1.80e308 null matter<br>
+      <button id = "aup0" class = "aNA" onclick = "buyAu0()">Purchased:<span id = "Dau0">false</span></button> Cost: 1.80e308 null matter<br>
 			
       
       
@@ -64,38 +64,37 @@
 		<div id = "prestigeTab1.1">
       
 			Each Discovery Point multiplies each dimension's production by an additive 100% each, before additional boosts.<br>
-      <button onclick = "p1()">Reset your progress for Discovery Points!</button><br>
+      <button id = "resetButton" class = "cp1" onclick = "p1()">Reset your progress for Discovery Points!</button><br>
       You can get <span id = "DdpP">0</span> Discovery Points if you make a Discovery now.<br><br>
       <co class = "di0"> You have <co class = "di1"><span id = "Ddp">0</span></co> Discovery Points, giving a <span id = "Dde">0</span>x multiplier to each dimension's production. </co>
       
       <br><br><br>
       Raise the boost from Discovery Points to the power of <span id = "Dru0P">4</span>.<br>
-      <button onclick = "buyRu0()">Buy 1</button> <button onclick = "buyRu0M()">Buy Max</button> Cost: <span id = "Dru0C">5000</span> Discovery Points<br>
+      <button id = "du01" class = "du1" onclick = "buyRu0()">Buy 1</button> <button id = "du0M" class = "du1" onclick = "buyRu0M()">Buy Max</button> Cost: <span id = "Dru0C">5000</span> Discovery Points<br>
       Purchased <span id = "Dru0">0</span> times.
       <br><br>
       Retroactively add the boost factor of the above upgrade by 2. <br>
-      <button onclick = "buyRu2()">Buy</button> Cost: <span id = "Dru2C">1e10</span> Discovery Points <br>
-      <span id = "Dru2M"></span>
+      <button id = "du02" class = "du1" onclick = "buyRu2()"><span id = "Dru2M">Buy</span></button> Cost: <span id = "Dru2C">1e10</span> Discovery Points
       <br><br><br>
       Multiply your discovery point gain by log(discovery points).<br>
-      <button onclick = "buyU0()">Purchased: <span id = "Du0">false</span></button> Cost: 1e100 Discovery Points
+      <button id = "du03" class = "du1" onclick = "buyU0()">Purchased: <span id = "Du0">false</span></button> Cost: 1e100 Discovery Points
       <br><br><br>
       Make the null matter automation upgrade not be reset on discovery.<br>
-      <button onclick = "buyU1()">Purchased: <span id = "Du1">false</span></button> Cost: 1e200 Discovery Points
+      <button id = "du04" class = "du1" onclick = "buyU1()">Purchased: <span id = "Du1">false</span></button> Cost: 1e200 Discovery Points
       <br>
       
       
       <div id = "prestigeTab1.2">
         <br><br><br><br>
         Buff the matter effect from x to (null matter)^^x.<br>
-        <button onclick = "buyU2()">Purchased: <span id = "Du2">false</span></button> Cost: E1#100 Discovery Points
-        <!--
+        <button id = "du05" class = "du1" onclick = "buyU2()">Purchased: <span id = "Du2">false</span></button> Cost: E1#100 Discovery Points
+        
         <div id = "prestigeTab1.3">
         <br><br><br>
-        Change the antimatter effect from multiplying discovery point gain to tetrating discovery point gain.<br>
-        <button onclick = "buyU3()">Purchased: <span id = "Du3">false</span></button> Cost: 3^^^3 (about E1#7.6256e12) Discovery Points
+        Change the antimatter effect from multiplying discovery point gain to tetrating discovery point gain. (Specifically: discovery points are tetrated to (log(antimatter)/3000))<br>
+        <button id = "du06" class = "du1" onclick = "buyU3()">Purchased: <span id = "Du3">false</span></button> Cost: 3^^^3 (about E1#7.6256e12) Discovery Points
         </div>
-        -->
+        
       </div>
 			
       
@@ -105,26 +104,27 @@
       
       <co class = "di0"> You have <co class = "di2"><span id = "Da">0</span></co> antimatter. </co>
       <br>
-      They are <span id = "Dah">multiplying</span> your discovery point gain by <span id = "Dae">1</span>x.
+      They are <span id = "Dah">multiplying</span> your discovery point gain by <span id = "Dae">1</span>x. <br>
+      Formula: 1 + (log(1 + antimatter))^3
       <br><br>
-      <button onclick = "buyRu1()">Buy 1 antimatter</button> Cost: <span id = "DruC1">1000</span> Discovery Points
+      <button id = "ba" class = "b0a" onclick = "buyRu1()">Buy 1 antimatter</button> Cost: <span id = "DruC1">1000</span> Discovery Points
     <br><br><br>
-      <button class = "m" onclick = "MaxA()">Max all antimatter dimensions</button>
+      <button class = "mA" onclick = "MaxA()">Max all antimatter dimensions</button>
       <br><br>
     You have <span id = "Da1">0</span> first antimatter dimensions. 
-    <button onclick = "buyA1()">Buy 1</button>
-    <button onclick = "maxA1()">Buy Max</button> Cost: 10 antimatter
+    <button class = "buyA" onclick = "buyA1()">Buy 1</button>
+    <button class = "buyAM" onclick = "maxA1()">Buy Max</button> Cost: 10 antimatter
       <br>
     You have <span id = "Da2">0</span> second antimatter dimensions. 
-    <button onclick = "buyA2()">Buy 1</button>
-    <button onclick = "maxA2()">Buy Max</button> Cost: 1e10 antimatter
+    <button class = "buyA" onclick = "buyA2()">Buy 1</button>
+    <button class = "buyAM" onclick = "maxA2()">Buy Max</button> Cost: 1e10 antimatter
         <br>
     You have <span id = "Da3">0</span> third antimatter dimensions. 
-    <button onclick = "buyA3()">Buy 1</button>
-    <button onclick = "maxA3()">Buy Max</button> Cost: E10#2 antimatter
+    <button class = "buyA" onclick = "buyA3()">Buy 1</button>
+    <button class = "buyAM" onclick = "maxA3()">Buy Max</button> Cost: E10#2 antimatter
       <br><br><br>
       Automate the clicking of the Max all antimatter dimensions button (25/s) (Togglable) <br>
-      <button onclick = "buyAu1()">Purchased: <span id = "Dau1">false</span></button> <button onclick = "toggleAu1()">Is toggled on: <span id = "Dta1">false</span></button> <br>
+      <button id = "aup1" class = "aNA" onclick = "buyAu1()">Purchased: <span id = "Dau1">false</span></button> <button id = "auT1" class = "aT0" onclick = "toggleAu1()">Is toggled on: <span id = "Dta1">false</span></button> <br>
       Cost: 1.80e308 antimatter
       <br><br><br>
       There is a <span id = "Dam">0</span>x multiplier to all antimatter dimensions.<br>
@@ -137,26 +137,27 @@
       
       <co class = "di0"> You have <co class = "di3"><span id = "Dm">0</span></co> matter. </co>
       <br>
-      They make it so that whenever you buy a dimension, that dimension gets a <span id = "Dme0"></span><span id = "Dme">1</span>x multiplier.
+      They make it so that whenever you buy a dimension, that dimension gets a <span id = "Dme0"></span><span id = "Dme">1</span>x multiplier. <br>
+      Formula: 1 + (log(1 + matter))^4
       <br><br>
-      <button onclick = "buyRu3()">Buy 1 matter</button> Cost: <span id = "DruC3">E25#3</span> Discovery Points
+      <button id = "bm" class = "b0m" onclick = "buyRu3()">Buy 1 matter</button> Cost: <span id = "DruC3">E25#3</span> Discovery Points
       <br><br><br>
-      <button class = "m" onclick = "MaxM()">Max all matter dimensions</button>
+      <button class = "mM" onclick = "MaxM()">Max all matter dimensions</button>
       <br><br>
     You have <span id = "Dm1">0</span> first matter dimensions. 
-    <button onclick = "buyM1()">Buy 1</button>
-    <button onclick = "maxM1()">Buy Max</button> Cost: 10 matter
+    <button class = "bM" onclick = "buyM1()">Buy 1</button>
+    <button class = "bMM" onclick = "maxM1()">Buy Max</button> Cost: 10 matter
       <br>
     You have <span id = "Dm2">0</span> second matter dimensions. 
-    <button onclick = "buyM2()">Buy 1</button>
-    <button onclick = "maxM2()">Buy Max</button> Cost: 1e10 matter
+    <button class = "bM" onclick = "buyM2()">Buy 1</button>
+    <button class = "bMM" onclick = "maxM2()">Buy Max</button> Cost: 1e10 matter
       <br><br><br>
       Automate the clicking of the Max all matter dimensions button (25/s) (Togglable) <br>
-      <button onclick = "buyAu2()">Purchased: <span id = "Dau2">false</span></button> <button onclick = "toggleAu2()">Is toggled on: <span id = "Dta2">false</span></button> <br>
+      <button id = "aup2" class = "aNA" onclick = "buyAu2()">Purchased: <span id = "Dau2">false</span></button> <button  id = "auT2" class = "aT0" onclick = "toggleAu2()">Is toggled on: <span id = "Dta2">false</span></button> <br>
       Cost: 1.80e308 matter
       <br><br><br>
       There is a <span id = "Dmm">0</span>x multiplier to all matter dimensions.<br>
-      Formula: 1000^(10^(superLog(antimatter) - 4)) - 1
+      Formula: 1e7^(1e5^(superLog(antimatter) - 3.2)) - 1
       
       
       
@@ -165,7 +166,7 @@
 			
 	<button onclick = "save()">Manual save</button> <br><br>
       <button onclick = "changeTheme()">Change Color Theme</button> Doesn't work currently.<br><br><br>
-	<button onclick = "hardReset()">HARD RESET</button> WARNING: THIS BUTTON HARD RESETS YOUR SAVE.
+	<button id = "hr" class = "hr1" onclick = "hardReset()">HARD RESET</button> <co class = "hrt">WARNING: THIS BUTTON HARD RESETS YOUR SAVE.</co>
 			<br><br><br>
 			For the coders out there: If you want to mod this game, you are allowed to do so as long as you don't name it the exact same thing (The Unscaled Incremental NG+ and the like are fine) and credit me for the original.
 			<br><br><br>
@@ -182,7 +183,7 @@
 		<br>	3-21-2020, v0.4 beta: No more floating point errors on the screen!
 		<br>	3-21-2020, v0.5 beta: Added this changelog, added tabs, nerfed 2nd dimension by 5x.
     <br>	3-22-2020, v0.6 beta: Fixed the bug where saving didn't work, and saving is better now.  <co class = "cc1-0">
-    <br>  3-22-2020, v1.0: Added discovery! Discover what it does! You can now reach e10000 null matter!  </co><co class = "cc1-1">
+<br><br>  3-22-2020, v1.0: Added discovery! Discover what it does! You can now reach e10000 null matter!  </co><co class = "cc1-1">
     <br>  3-25-2020, v1.1: Added an automation upgrade, a repeatable discovery upgrade, and fixed some bugs.  </co><co class = "cc1-2">
     <br>  3-26-2020, v1.2: Added antimatter dimensions!
     <br>  3-26-2020, v1.2.1: Fixed a bug where the max all antimatter dimensions button didn't work.  </co><co class = "cc1-3">
@@ -194,7 +195,18 @@
     <br>  4-12-2020, v1.7: Added matter dimensions and an upgrade that buffs the matter effect!
     <br>  4-19-2020, v1.7.1: Matter automation now works and other bugfixes, matter effect and matter dimension multiplier are buffed.
     <br>  4-20-2020, v1.7.2: Added 3rd Antimatter Dimension.  </co><co class = "cc1-8">
-    <br>  6-22-2020, v1.8: Better graphics, and added a buggy news ticker!  </co>
+    <br>  6-22-2020, v1.8: Better graphics, and added a buggy news ticker!  
+    <br>  6-26-2020, v1.8.1: Changes to the second repeatable discovery upgrade once it reaches e6969, reduced matter requirement from eee25 to eee10 discovery points.
+    <br>  6-26-2020, v1.8.2: Hover effects for buttons!  
+    <br>  7-9-2020, v1.8.3: More buttons are now prettified.
+    <br>  7-11-2020, v1.8.4: Conditional coloring on some buttons!
+    <br>  7-22-2020, v1.8.5: More conditional coloring!
+      </co><co class = "cc1-9">
+    <br>  7-23-2020, v1.9: All of the buttons have been colored in some way, added an upgrade at 3^^^3 DP, and tons of balancing changes post-matter. Also there's a game timer now! And a few more news tickers.
+      </co><!--<co class = "cc2-0">
+<br><br>  ?-??-2020, v2.0: 
+      </co>
+-->
 			
 			
 		</div>
