@@ -1,7 +1,7 @@
 var newsArray;
 
 function updateNewsArray() {
-newsArray = [//always true
+newsArray = [//always true 
 ["The cookie is a lie.", true, "a1"], 
 ["Antimatter cookies have been confirmed to not exist, whoever claims that, stop.", true, "a2"], 
 ["Antimatter ghosts do not exist. Just like matter ghosts. They don't have any matter, for that matter.", true, "a3"],
@@ -234,7 +234,7 @@ newsArray = [//always true
 ["Person A: Guys! I found out that glitch does not like to glitch! Everyone else: YAAAAYYYY!! Person A: Yeah, it likes to bug. Everyone else: WAAAA", true, "s17"],
 ["https://discord.gg/jeRajFK", true, "s18"],
 ["https://www.patreon.com/SuperSpruce", true, "s19"],
-["People with @Pinglol when they get pinged: lol     People without @Pinglol when they get pinged: REEEEEEEEEEE", true, "s20"],
+["People with @Pinglol when they get pinged: lol  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   People without @Pinglol when they get pinged: REEEEEEEEEEE", true, "s20"],
   ["'Wanna be friends?' -Tom", true, "s21"],
   ["'Wanna be friends?' -Todd", true, "s22"],
   ["'Wanna be friends?' -Call", true, "s23"],
@@ -305,7 +305,7 @@ newsArray = [//always true
   ["What does RG actually stand for? Realm Grinder? Replicated Galaxy? Red-Green Gluon?", true, "s88"],
   ["'Ew mods' -Earth", true, "s89"],
   ["BREAKING NEWS: Florida man pings @punk for no reason on the vanilla Antimatter Dimensions server, Hevi catapults him into the Atlantic Ocean", true, "s90"],
-  ["'Stupid SuperSpruce' -https discord bot", true, "s91"],
+  ["'Stupid SuperSpruce' -https bot", true, "s91"],
   ["'@SuperSpruce' -1e308", true, "s92"],
   ["'@everyone' -Birdbot", true, "s93"],
   ["Is this a news ticker or a new sticker?", true, "s94"],
@@ -315,6 +315,19 @@ newsArray = [//always true
   ["This is the Knobbelboy news ticker. Only 98% of it is sho", true, "s98"],
   ["The null matter in this game is gone through special processes to become clovers in Clover Clicker, which produces flowers. Those flowers are used in my level 'Evil Flowers' in Geometry Dash.", true, "s99"],
   ["For some reason, long news tickers freeze after a while. A new one eventually appears. Nobody knows what causes this bug. Maybe you can help me figure it out and fix it!", true, "s100"],
+  ["ew embi", true, "s101"],
+  ["weeew is z0 get over it", true, "s102"],
+  ["weeew is G0 get over it", true, "s103"],
+  ["If AI-generated news tickers exist in 2020, what will AI generate by 2050?", true, "s104"],
+  ["This game is better than the $60 AAA games that STILL try to manipulate you into forking over hundreds via loot boxes. How have these big-budget games become trash mobile games with better grahpics?", true, "s105"],
+  ["Gameplay > Graphics", true, "s106"],
+  ["Gameplay > Graphics", true, "s107"],
+  ["Gameplay > Graphics, except when there's a bug that prevents you from adding more gameplay", true, "s108"],
+  ["'Gameplay < Graphics' -EA", true, "s109"],
+  ["If this game is feeling slow and you want some entertainment while you're waiting, either watch SuperSpruce's YouTube videos, or just watch this one: https://www.youtube.com/watch?v=YUln4BNsUIA", true, "s110"],
+  ["'@Gerald' -6327", true, "s111"],
+  ["'@Gerald' -6327. 'Why you ping me?' -Gerald. '@Gerald' -6327", true, "s112"],
+  ["'@SuperSpruce' -a bot. 'PING' -SuperSpruce. 'What is ping, @SuperSpruce?' -the same bot", true, "s113"],
   
 
 //luck
@@ -340,13 +353,20 @@ newsArray = [//always true
 ["This news message is 10x more common than all the others.", true, "l20"],
 ["Your Clicker Heroes mercenary lived as long as Lazeellama's Dogmeat!", "Math.random() <= 1.2e-10", "l22"],
 ["You tried to flirt with a cute boy/girl, and he/she didn't respond...", true, "l23"],
-["You tried to flirt with a cute boy/girl, and he/she showed signs of flirting back, but quickly stopped doing that...", "Math.random() < 1e-1", "l24"],
-["You tried to flirt with a cute boy/girl, and he/she flirted back! However, he/she was not into you...", "Math.random() < 5e-3", "l25"],
+["You tried to flirt with a cute boy/girl, and he/she showed signs of flirting back, but quickly stopped doing that...", "Math.random() < 0.1", "l24"],
+["You tried to flirt with a cute boy/girl, and he/she flirted back! However, he/she was not into you...", "Math.random() < 0.01", "l25"],
 ["You just asked a cute boy/girl on a date, and he/she said YES! And he/she kept on his/her promise!! However, he/she didn't like the date so he/she did not become your boyfriend/girlfriend...", "Math.random() < 5e-6", "l26"],
 ["You just asked a cute boy/girl on a date, and he/she said YES! However, he/she did not keep on his/her promise...", "Math.random() < 2e-3", "l27"],
 ["You just asked a cute boy/girl on a date, and he/she said no...", "Math.random() < 0.3", "l28"],
 ["You just asked a cute boy/girl on a date, and he/she said YES! And he/she kept on his/her promise!! Then he/she asked you on a second date! After several dates, you ask to be his/her girlfriend/boyfriend, and he/she says YES!!! You just got a boyfriend/girlfriend!!!", "Math.random() <= 1e-13", "l21"],
 ["You just asked a cute boy/girl on a date, and he/she said YES! And he/she kept on his/her promise!! Then he/she asked you on a second date! After several dates, you ask to be his/her girlfriend/boyfriend, and he/she says NO...", "Math.random() <= 5e-10", "l29"],
+["You tried to flirt with a cute boy/girl, and he/she flirted back! He/she showed genuine interest in you, and after asking him/her on a date, he/she said no...", "Math.random() < 5e-4", "l30"],
+["You tried to flirt with a cute boy/girl, and he/she flirted back! He/she showed genuine interest in you, and after asking him/her on a date, he/she said YES! However, he/she did not keep on his/her promise...", "Math.random() < 5e-5", "l31"],
+["You tried to flirt with a cute boy/girl, and he/she flirted back! He/she showed genuine interest in you, and after asking him/her on a date, he/she said YES! And he/she kept on his/her promise!! However, he/she didn't like the date so he/she did not become your boyfriend/girlfriend...", "Math.random() < 2e-6", "l32"],
+["You tried to flirt with a cute boy/girl, and he/she flirted back! He/she showed genuine interest in you, and after asking him/her on a date, he/she said YES! And he/she kept on his/her promise!! Then he/she asked you on a second date! After several dates, you ask to be his/her girlfriend/boyfriend, and he/she says NO...", "Math.random() <= 2e-10", "l33"],
+["You tried to flirt with a cute boy/girl, and he/she flirted back! He/she showed genuine interest in you, and after asking him/her on a date, he/she said YES! And he/she kept on his/her promise!! Then he/she asked you on a second date! After several dates, you ask to be his/her girlfriend/boyfriend, and he/she says YES!!! You just got a boyfriend/girlfriend!!!", "Math.random() <= 1e-13", "l34"],
+["A boy/girl is crushing on you!! But for whatever reason, you don't think he/she is very cute, so the spark never happens... If only your brain was wired a little differently, you could've got a boyfriend/girlfriend...", "Math.random() <= 5e-11", "l35"],
+["A boy/girl is crushing on you!! And you think he/she is cute, leading you to ask him/her on a date! He/she says YES! Then he/she asked you on a second date! After several dates, you ask to be his/her girlfriend/boyfriend, and he/she says YES!!! You just got a boyfriend/girlfriend!!!", "Math.random() <= 5e-14", "l36"],
   
   // Patreon ones
 ["Is this a jojo reference?", true, "pat1"]
