@@ -48,6 +48,13 @@ co.cc1-7 {
 co.cc1-8 {
   color: #66ff00;
 }
+co.cc1-9 {
+  color: #22ff00;
+}
+co.cc2-0 {
+  color: #ff0000;
+  font: 20px impact;
+}
 co.null0 {
   font: 24px courier, sans-serif;
 }
@@ -66,8 +73,27 @@ co.di2 {
 co.di3 {
   color: #5599ff;
 }
+co.hrt {
+  color: #dd1100;
+  font: 24px courier;
+  font-weight: bold;
+}
 
 
+
+
+button {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #dddddd;
+  color: #000000;
+  font-size: 14px;
+}
+button:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+}
 
 
 button.bt {
@@ -78,6 +104,16 @@ button.bt {
   color: #000000;
   font-size: 24px;
 }
+button.bt:hover {
+  border: none;
+  padding: 12px 20px;
+  margin: 4px 2px;
+  background-color: #ffffaa;
+  color: #000000;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 button.b1 {
   border: none;
   padding: 12px 20px;
@@ -86,6 +122,16 @@ button.b1 {
   color: #00aa00;
   font-size: 24px;
 }
+button.b1:hover {
+  border: none;
+  padding: 12px 20px;
+  margin: 4px 2px;
+  background-color: #ffffaa;
+  color: #008800;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 button.b2 {
   border: none;
   padding: 12px 20px;
@@ -94,6 +140,16 @@ button.b2 {
   color: #ffffff;
   font-size: 24px;
 }
+button.b2:hover {
+  border: none;
+  padding: 12px 20px;
+  margin: 4px 2px;
+  background-color: #ff3333;
+  color: #000000;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 button.b3 {
   border: none;
   padding: 12px 20px;
@@ -102,15 +158,536 @@ button.b3 {
   color: #ffffff;
   font-size: 24px;
 }
+button.b3:hover {
+  border: none;
+  padding: 12px 20px;
+  margin: 4px 2px;
+  background-color: #3838ff;
+  color: #000000;
+  font-size: 24px;
+  cursor: pointer;
+}
 
-button.m {
+
+button.buy {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
+}
+button.buy:hover {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #cccccc;
+  color: #000000;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.buyM {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #ffeebb;
+  color: #000000;
+  font-size: 14px;
+}
+button.buyM:hover {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #ffdd66;
+  color: #000000;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.mN {
   border: none;
   padding: 6px 12px;
   margin: 4px 2px;
-  background-color: #883300;
-  color: #ffffff;
+  background-color: #ffff00;
+  color: #000000;
   font-size: 18px;
 }
+button.mN:hover {
+  border: none;
+  padding: 6px 12px;
+  margin: 4px 2px;
+  background-color: #eecc00;
+  color: #000000;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+button.buyA {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #ffdddd;
+  color: #000000;
+  font-size: 14px;
+}
+button.buyA:hover {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #eeaaaa;
+  color: #000000;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.buyAM {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #ffbbcc;
+  color: #000000;
+  font-size: 14px;
+}
+button.buyAM:hover {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #ff8899;
+  color: #000000;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.mA {
+  border: none;
+  padding: 6px 12px;
+  margin: 4px 2px;
+  background-color: #ff8888;
+  color: #000000;
+  font-size: 18px;
+}
+button.mA:hover {
+  border: none;
+  padding: 6px 12px;
+  margin: 4px 2px;
+  background-color: #ee6677;
+  color: #000000;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+button.bM {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #ddddff;
+  color: #000000;
+  font-size: 14px;
+}
+button.bM:hover {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #bbddff;
+  color: #000000;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.bMM {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #bbbbff;
+  color: #000000;
+  font-size: 14px;
+}
+button.bMM:hover {
+  border: none;
+  padding: 4px 6px;
+  margin: 4px 2px;
+  background-color: #88bbff;
+  color: #000000;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.mM {
+  border: none;
+  padding: 6px 12px;
+  margin: 4px 2px;
+  background-color: #8888ff;
+  color: #000000;
+  font-size: 18px;
+}
+button.mM:hover {
+  border: none;
+  padding: 6px 12px;
+  margin: 4px 2px;
+  background-color: #8866dd;
+  color: #000000;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+button.aNA {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #888888;
+  color: #000000;
+  font-size: 16px;
+}
+button.aNA:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #aaaaaa;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.aA1 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #bbbb44;
+  color: #000000;
+  font-size: 16px;
+}
+button.aA1:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #dddd66;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.aP1 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #ffff00;
+  color: #000000;
+  font-size: 16px;
+}
+button.aP1:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #ccff00;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+button.aA2 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #bb5511;
+  color: #000000;
+  font-size: 16px;
+}
+button.aA2:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #ee5511;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.aP2 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #ee7711;
+  color: #000000;
+  font-size: 16px;
+}
+button.aP2:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #ff8800;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+button.aA3 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #33cccc;
+  color: #000000;
+  font-size: 16px;
+}
+button.aA3:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #22dddd;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.aP3 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #22ccff;
+  color: #000000;
+  font-size: 16px;
+}
+button.aP3:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #11bbff;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+button.aT0 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #ee8888;
+  color: #000000;
+  font-size: 16px;
+}
+button.aT0:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #ff9999;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.aT1 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #88ee44;
+  color: #000000;
+  font-size: 16px;
+}
+button.aT1:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #99ff55;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+
+button.cp1 {
+  border: none;
+  padding: 8px 12px;
+  margin: 4px 2px;
+  background-color: #006600;
+  color: #ffee00;
+  font-size: 20px;
+}
+button.cp1:hover {
+  border: none;
+  padding: 8px 12px;
+  margin: 4px 2px;
+  background-color: #226600;
+  color: #ff6600;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+button.du1 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #cceecc;
+  color: #000000;
+  font-size: 16px;
+}
+button.du1:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #ddffdd;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.du2 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #00dd00;
+  color: #000000;
+  font-size: 16px;
+}
+button.du2:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #00ff00;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.du3 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #007700;
+  color: #ffffff;
+  font-size: 16px;
+}
+button.du3:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #009900;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+button.b0a {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #dddddd;
+  color: #ff0000;
+  font-size: 16px;
+}
+button.b0a:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #eeeeee;
+  color: #dd0000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.b1a {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #dd0000;
+  color: #ffffff;
+  font-size: 16px;
+}
+button.b1a:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #ff0000;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.b0m {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #dddddd;
+  color: #0000ff;
+  font-size: 16px;
+}
+button.b0m:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #eeeeee;
+  color: #0000dd;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.b1m {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #0000dd;
+  color: #ffffff;
+  font-size: 16px;
+}
+button.b1m:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #0000ff;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+button.hr1 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #ee4400;
+  color: #ffffff;
+  font-size: 16px;
+}
+button.hr1:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #440000;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.hr2 {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #880000;
+  color: #ffffff;
+  font-size: 16px;
+}
+button.hr2:hover {
+  border: none;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  background-color: #440000;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+
 
 
 #game {
