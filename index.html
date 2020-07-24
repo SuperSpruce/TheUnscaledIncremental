@@ -14,7 +14,9 @@
 
 	
 	<body>
-		    No Cost Scaling!  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Time played: <span id = "timePlayed">0:00:00</span>
+    <div id = "normal">
+      
+		    No Cost Scaling!  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Time played: <span id = "timePlayed">0:00:00</span> &nbsp;&nbsp;&nbsp;&nbsp; Best time: <span id = "bestTime">1000:00:00</span>
         <div id="game">
             <div id="news">.</div>
         </div>
@@ -168,7 +170,7 @@
       <button onclick = "changeTheme()">Change Color Theme</button> Doesn't work currently.<br><br><br>
 	<button id = "hr" class = "hr1" onclick = "hardReset()">HARD RESET</button> <co class = "hrt">WARNING: THIS BUTTON HARD RESETS YOUR SAVE.</co>
 			<br><br><br>
-			For the coders out there: If you want to mod this game, you are allowed to do so as long as you don't name it the exact same thing (The Unscaled Incremental NG+ and the like are fine) and credit me for the original.
+			For the coders out there: If you want to mod this game, you are allowed to do so as long as you don't name it the exact same thing (The Unscaled Incremental NG+ and the like are fine) and preferably credit me for the original.
 			<br><br><br>
       Credit to Hevipelle and Aarex for some of the news tickers. And credit to Hevipelle for the news ticker code.
       
@@ -203,13 +205,30 @@
     <br>  7-22-2020, v1.8.5: More conditional coloring!
       </co><co class = "cc1-9">
     <br>  7-23-2020, v1.9: All of the buttons have been colored in some way, added an upgrade at 3^^^3 DP, and tons of balancing changes post-matter. Also there's a game timer now! And a few more news tickers.
-      </co><!--<co class = "cc2-0">
-<br><br>  ?-??-2020, v2.0: 
+      </co><co class = "cc2-0">
+<br><br>  7-23-2020, v2.0: Added an end screen for when you reach the end of the game! Yes, the end of the game, as there will be no more content-adding updates to this game after this update. It displays your time and best time, if you want to speedrun this game. Also the number formatting was improved. 
       </co>
--->
 			
 			
 		</div>
-    
+      </div>
+    <div id = "end">
+      <co class = "e1">Congratulations! You have beat The Unscaled Incremental in </co><co class = "e2"><span id = "time" class = "e">x:xx:xx</span></co><co class = "e1">!</co> <br><br>
+      <co class = "e3">Your best time is now </co><co class = "e4"><span id = "time2" class = "e"></span></co><co class = "e3">.</co>
+      <br><br><br><br>
+      <button class = "aT1" onclick = "hardReset()">Play this game again from the beginning!</button> Try for a faster time!
+      <br><br><br><br>
+      <button id = "hr0" class = "hr1" onclick = "resetBestTime()">Reset your best time</button>
+      <br><br><br><br><br><br>
+      <co class = "null0">Credits:</co> <br>
+      <co class = "cc1-9">Game Developer: SuperSpruce</co> <br>
+      Creator of OmegaNum.js: Naruyoko <br>
+      Creator of the tournament that inspired me to make this game: Patcail <br>
+      Creator of the news ticker code: Hevipelle <br>
+      News tickers makers: SuperSpruce, Hevipelle, Aarex <br>
+      People who helped me with the coding: Yhvr, Reinhardt, Jacorb, Yahtzee Master, TheTastyPi
+      <br><br><br>
+      For the coders out there: If you want to mod this game, you are allowed to do so as long as you don't name it the exact same thing (The Unscaled Incremental NG+ and the like are fine) and preferably credit me for the original.
+    </div>
 	</body>
 </html>
