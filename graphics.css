@@ -78,6 +78,117 @@ co.hrt {
   font: 24px courier;
   font-weight: bold;
 }
+co.e {
+  color: #ffffff;
+}
+co.e1 {
+  font: 32px Luminari;
+}
+co.e2 {
+  font: 48px Luminari;
+}
+co.e3 {
+  font: 24px Luminari;
+}
+co.e4 {
+  font: 36px Luminari;
+}
+span.e0 {
+  color: #7700aa;
+}
+span.e60 {
+  color: #4400c0;
+}
+span.e65 {
+  color: #2200e0;
+}
+span.e70 {
+  color: #0000ff;
+}
+span.e75 {
+  color: #0033ff;
+}
+span.e80 {
+  color: #0066ff;
+}
+span.e85 {
+  color: #0099ff;
+}
+span.e90 {
+  color: #00bbff;
+}
+span.e95 {
+  color: #00eeee;
+}
+span.e100 {
+  color: #00ffbb;
+}
+span.e105 {
+  color: #00ff99;
+}
+span.e110 {
+  color: #00ff66;
+}
+span.e115 {
+  color: #00ff33;
+}
+span.e120 {
+  color: #00ff00;
+}
+span.e130 {
+  color: #33ff00;
+}
+span.e140 {
+  color: #60ff00;
+}
+span.e150 {
+  color: #88ff00;
+}
+span.e160 {
+  color: #b0ff00;
+}
+span.e170 {
+  color: #ddff00;
+}
+span.e180 {
+  color: #ffff00;
+}
+span.e190 {
+  color: #ffdd00;
+}
+span.e200 {
+  color: #ffc000;
+}
+span.e210 {
+  color: #ffaa00;
+}
+span.e220 {
+  color: #ff9900;
+}
+span.e230 {
+  color: #ff8800;
+}
+span.e240 {
+  color: #ff7700;
+}
+span.e250 {
+  color: #ff6600;
+}
+span.e260 {
+  color: #ff5500;
+}
+span.e270 {
+  color: #ff4400;
+}
+span.e280 {
+  color: #ff3300;
+}
+span.e290 {
+  color: #ff2200;
+}
+span.e300 {
+  color: #ff0000;
+}
 
 
 
