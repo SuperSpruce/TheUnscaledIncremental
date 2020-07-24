@@ -27,7 +27,7 @@ game = {
   ru2C: [new OmegaNum(1e10), new OmegaNum(1e20), new OmegaNum(1e30), new OmegaNum(1e40), new OmegaNum(1e55), new OmegaNum(1e80), new OmegaNum(1e150), new OmegaNum(OmegaNum.pow(2,1024)), new OmegaNum("e1000"), new OmegaNum("e6969")],  //cost of the third repeatable upgrade
   theme: 0,
   frames: 0,
-  speedrunTime: 0
+  speedrunTime: 9e7
 };
 
 
@@ -794,24 +794,130 @@ function buyU3() {
 
 
 function runEndSequence() {
-  game.speedrunTime = Math.round(game.frames);
   save();
-  let h = game.speedrunTime % 90000;
-  let m = game.speedrunTime % 1500;
-  let s = game.speedrunTime % 25;
-  let cs = (game.speedrunTime * 4) % 100;
-  document.getElementById("time").innerHTML = h + ":" + m + ":" + s + "." + cs;
+  outerTab("end");
+  let a = Math.round(game.frames);
+  let h = Math.floor(a/90000);
+  let m = Math.floor(a/1500) % 60;
+  let s = Math.floor(a/25) % 60;
+  let cs = (a * 4) % 100;
+  let sm = "";
+  let ss = "";
+  if(m < 10)
+    sm += "0";
+  if(s < 10)
+    ss += "0";
+  sm += m;
+  ss += s;
+  document.getElementById("time").innerHTML = h + ":" + sm + ":" + ss + "." + cs;
   
+  if(a < game.speedrunTime)
+    game.speedrunTime = a;
+  
+  let a2 = game.speedrunTime;
+  let h2 = Math.floor(a2/90000);
+  let m2 = Math.floor(a2/1500) % 60;
+  let s2 = Math.floor(a2/25) % 60;
+  let cs2 = (a2 * 4) % 100;
+  let sm2 = "";
+  let ss2 = "";
+  if(m2 < 10)
+    sm2 += "0";
+  if(s2 < 10)
+    ss2 += "0";
+  sm2 += m2;
+  ss2 += s2;
+  document.getElementById("time2").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + cs2;
+  
+  let c = "time";
+  let b = 0;
+  for(let i = 0; i < 1.5; i++) {
+    if(i == 0) {
+      b = a/1500;
+    }
+    else {
+      c += "2";
+      b = a2/1500;
+    }
+    if(b > 300)
+      document.getElementById(c).className = "e300";
+    else if(b > 290)
+      document.getElementById(c).className = "e290";
+    else if(b > 280)
+      document.getElementById(c).className = "e280";
+    else if(b > 270)
+      document.getElementById(c).className = "e270";
+    else if(b > 260)
+      document.getElementById(c).className = "e260";
+    else if(b > 250)
+      document.getElementById(c).className = "e250";
+    else if(b > 240)
+      document.getElementById(c).className = "e240";
+    else if(b > 230)
+      document.getElementById(c).className = "e230";
+    else if(b > 220)
+      document.getElementById(c).className = "e220";
+    else if(b > 210)
+      document.getElementById(c).className = "e210";
+    else if(b > 200)
+      document.getElementById(c).className = "e200";
+    else if(b > 190)
+      document.getElementById(c).className = "e190";
+    else if(b > 180)
+      document.getElementById(c).className = "e180";
+    else if(b > 170)
+      document.getElementById(c).className = "e170";
+    else if(b > 160)
+      document.getElementById(c).className = "e160";
+    else if(b > 150)
+      document.getElementById(c).className = "e150";
+    else if(b > 140)
+      document.getElementById(c).className = "e140";
+    else if(b > 130)
+      document.getElementById(c).className = "e130";
+    else if(b > 120)
+      document.getElementById(c).className = "e120";
+    else if(b > 115)
+      document.getElementById(c).className = "e115";
+    else if(b > 110)
+      document.getElementById(c).className = "e110";
+    else if(b > 105)
+      document.getElementById(c).className = "e105";
+    else if(b > 100)
+      document.getElementById(c).className = "e100";
+    else if(b > 95)
+      document.getElementById(c).className = "e95";
+    else if(b > 90)
+      document.getElementById(c).className = "e90";
+    else if(b > 85)
+      document.getElementById(c).className = "e85";
+    else if(b > 80)
+      document.getElementById(c).className = "e80";
+    else if(b > 75)
+      document.getElementById(c).className = "e75";
+    else if(b > 70)
+      document.getElementById(c).className = "e70";
+    else if(b > 65)
+      document.getElementById(c).className = "e65";
+    else if(b > 60)
+      document.getElementById(c).className = "e60";
+    else
+      document.getElementById(c).className = "e0";
+  }
 }
 
 
 
 
 setInterval(function() {
-  if(game.frames % 15 < 5)
+  if(game.frames % 15 < 5) {
     document.getElementById("hr").className = "hr1";
-  else
+    document.getElementById("hr0").className = "hr1";
+  }
+  else {
     document.getElementById("hr").className = "hr2";
+    document.getElementById("hr0").className = "hr2";
+  }
 }, 200);
 
 
@@ -935,6 +1041,13 @@ function tab(tab) {
   document.getElementById("dimTab3").style.display = "none";
 	document.getElementById("optionsTab").style.display = "none";
 	document.getElementById("changelogTab").style.display = "none";
+	document.getElementById(tab).style.display = "inline-block";
+}
+
+function outerTab(tab) {
+	// hide all your tabs, then show the one the user selected.
+	document.getElementById("normal").style.display = "none";
+	document.getElementById("end").style.display = "none";
 	document.getElementById(tab).style.display = "inline-block";
 }
 
@@ -1122,6 +1235,25 @@ function updateEverything() {
   sm += m;
   ss += s;
   document.getElementById("timePlayed").innerHTML = h + ":" + sm + ":" + ss;
+  
+  let a2 = game.speedrunTime;
+  let h2 = Math.floor(a2/90000);
+  let m2 = Math.floor(a2/1500) % 60;
+  let s2 = Math.floor(a2/25) % 60;
+  let cs2 = (a2 * 4) % 100;
+  let sm2 = "";
+  let ss2 = "";
+  if(m2 < 10)
+    sm2 += "0";
+  if(s2 < 10)
+    ss2 += "0";
+  sm2 += m2;
+  ss2 += s2;
+  document.getElementById("bestTime").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + cs2;
+  
+  if(game.n.gt("10^^1e16"))
+    outerTab("end");
+  else outerTab("normal");
 }
 
 
@@ -1166,8 +1298,31 @@ function hardReset() {
   game.theme = 0;
   game.frames = 0;
   
+  tab('dimTab');
+  scrollNextMessage();
   updateEverything();
 }
+
+function resetBestTime() {
+  game.speedrunTime = 9e7;
+  let a2 = game.speedrunTime;
+  let h2 = Math.floor(a2/90000);
+  let m2 = Math.floor(a2/1500) % 60;
+  let s2 = Math.floor(a2/25) % 60;
+  let cs2 = (a2 * 4) % 100;
+  let sm2 = "";
+  let ss2 = "";
+  if(m2 < 10)
+    sm2 += "0";
+  if(s2 < 10)
+    ss2 += "0";
+  sm2 += m2;
+  ss2 += s2;
+  document.getElementById("bestTime").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + cs2;
+  document.getElementById("time2").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + cs2;
+  document.getElementById("time2").className = "e300";
+}
+
 load();
 updateEverything();
 tab('dimTab');
