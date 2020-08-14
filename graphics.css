@@ -51,9 +51,13 @@ co.cc1-8 {
 co.cc1-9 {
   color: #22ff00;
 }
-co.cc2-0 {
+co.cc2-0i {
   color: #ff0000;
-  font: 20px impact;
+  font: 22px impact;
+}
+co.cc2-0 {
+  color: #ee2200;
+  font: 18px impact;
 }
 co.null0 {
   font: 24px courier, sans-serif;

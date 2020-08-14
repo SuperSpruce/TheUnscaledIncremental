@@ -27,7 +27,8 @@ game = {
   ru2C: [new OmegaNum(1e10), new OmegaNum(1e20), new OmegaNum(1e30), new OmegaNum(1e40), new OmegaNum(1e55), new OmegaNum(1e80), new OmegaNum(1e150), new OmegaNum(OmegaNum.pow(2,1024)), new OmegaNum("e1000"), new OmegaNum("e6969")],  //cost of the third repeatable upgrade
   theme: 0,
   frames: 0,
-  speedrunTime: 9e7
+  speedrunTime: 9e7,
+  end: false
 };
 
 
@@ -803,13 +804,17 @@ function runEndSequence() {
   let cs = (a * 4) % 100;
   let sm = "";
   let ss = "";
+  let scs = "";
   if(m < 10)
     sm += "0";
   if(s < 10)
     ss += "0";
+  if(cs < 10)
+    scs += "0";
   sm += m;
   ss += s;
-  document.getElementById("time").innerHTML = h + ":" + sm + ":" + ss + "." + cs;
+  scs += cs;
+  document.getElementById("time").innerHTML = h + ":" + sm + ":" + ss + "." + scs;
   
   if(a < game.speedrunTime)
     game.speedrunTime = a;
@@ -821,13 +826,17 @@ function runEndSequence() {
   let cs2 = (a2 * 4) % 100;
   let sm2 = "";
   let ss2 = "";
+  let scs2 = "";
   if(m2 < 10)
     sm2 += "0";
   if(s2 < 10)
     ss2 += "0";
+  if(cs2 < 10)
+    scs2 += "0";
   sm2 += m2;
   ss2 += s2;
-  document.getElementById("time2").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + cs2;
+  scs2 += cs2;
+  document.getElementById("time2").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + scs2;
   
   let c = "time";
   let b = 0;
@@ -987,10 +996,32 @@ setInterval(function() {
   if(game.m.gte(1.79768e308) && !game.au[2])
     document.getElementById("aup2").className = "aA3";
   
-  game.frames++;
-  if(game.n.gt("10^^1e16"))
+    game.frames++;
+  if(game.n.gt("10^^1e16") && !game.end) {
     runEndSequence();
+    game.end = true;
+  }
+  
+  let a = Math.round(game.frames);
+  let h = Math.floor(a/90000);
+  let m = Math.floor(a/1500) % 60;
+  let s = Math.floor(a/25) % 60;
+  let cs = (a * 4) % 100;
+  let sm = "";
+  let ss = "";
+  let scs = "";
+  if(m < 10)
+    sm += "0";
+  if(s < 10)
+    ss += "0";
+  if(cs < 10)
+    scs += "0";
+  sm += m;
+  ss += s;
+  scs += cs;
+  document.getElementById("timePlayed").innerHTML = h + ":" + sm + ":" + ss + "." + scs;
 }, 40);
+
 
 setInterval(function() {
   if(game.nT.gte(1000)) {
@@ -1015,20 +1046,6 @@ setInterval(function() {
   }
     else
       document.getElementById('prestigeTab1.3').style.display = 'none';*/
-  
-  let a = Math.round(game.frames);
-  let h = Math.floor(a/90000);
-  let m = Math.floor(a/1500) % 60;
-  let s = Math.floor(a/25) % 60;
-  let sm = "";
-  let ss = "";
-  if(m < 10)
-    sm += "0";
-  if(s < 10)
-    ss += "0";
-  sm += m;
-  ss += s;
-  document.getElementById("timePlayed").innerHTML = h + ":" + sm + ":" + ss;
 }, 1000);
 
 
@@ -1236,20 +1253,24 @@ function updateEverything() {
   ss += s;
   document.getElementById("timePlayed").innerHTML = h + ":" + sm + ":" + ss;
   
-  let a2 = game.speedrunTime;
+  let a2 = Math.round(game.speedrunTime);
   let h2 = Math.floor(a2/90000);
   let m2 = Math.floor(a2/1500) % 60;
   let s2 = Math.floor(a2/25) % 60;
   let cs2 = (a2 * 4) % 100;
   let sm2 = "";
   let ss2 = "";
+  let scs2 = "";
   if(m2 < 10)
     sm2 += "0";
   if(s2 < 10)
     ss2 += "0";
+  if(cs2 < 10)
+    scs2 += "0";
   sm2 += m2;
   ss2 += s2;
-  document.getElementById("bestTime").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + cs2;
+  scs2 += cs2;
+  document.getElementById("bestTime").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + scs2;
   
   if(game.n.gt("10^^1e16"))
     outerTab("end");
@@ -1297,6 +1318,7 @@ function hardReset() {
   game.nT = new OmegaNum(10);
   game.theme = 0;
   game.frames = 0;
+  game.end = false;
   
   tab('dimTab');
   scrollNextMessage();
@@ -1305,21 +1327,25 @@ function hardReset() {
 
 function resetBestTime() {
   game.speedrunTime = 9e7;
-  let a2 = game.speedrunTime;
+  let a2 = Math.round(game.speedrunTime);
   let h2 = Math.floor(a2/90000);
   let m2 = Math.floor(a2/1500) % 60;
   let s2 = Math.floor(a2/25) % 60;
   let cs2 = (a2 * 4) % 100;
   let sm2 = "";
   let ss2 = "";
+  let scs2 = "";
   if(m2 < 10)
     sm2 += "0";
   if(s2 < 10)
     ss2 += "0";
+  if(cs2 < 10)
+    scs2 += "0";
   sm2 += m2;
   ss2 += s2;
-  document.getElementById("bestTime").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + cs2;
-  document.getElementById("time2").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + cs2;
+  scs2 += cs2;
+  document.getElementById("time2").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + scs2;
+  document.getElementById("bestTime").innerHTML = h2 + ":" + sm2 + ":" + ss2 + "." + scs2;
   document.getElementById("time2").className = "e300";
 }
 
